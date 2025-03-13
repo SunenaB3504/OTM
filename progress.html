@@ -35,29 +35,42 @@
         <section class="progress-dashboard">
             <div class="container">
                 <div class="progress-summary">
-                    <h3>Great work!</h3>
+                    <h3>Learning Journey</h3>
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 65%;">65%</div>
+                        <div class="progress-bar" id="overall-progress-bar">0%</div>
                     </div>
-                    <p>You've completed 65% of all lessons</p>
+                    <p id="progress-message">Track your math learning journey here!</p>
                 </div>
 
-                <div class="achievement-grid">
-                    <div class="achievement-card">
-                        <i class="fas fa-star achievement-icon completed"></i>
-                        <h4>Multiplication Master</h4>
-                        <p>Completed all basic multiplication lessons</p>
+                <!-- Lessons Progress Section -->
+                <div class="progress-section">
+                    <h3><i class="fas fa-book-open"></i> Lessons Progress</h3>
+                    
+                    <div class="progress-category">
+                        <h4>Basics</h4>
+                        <div class="progress-item-list" id="basics-lessons">
+                            <!-- Basics lessons will be populated by JS -->
+                        </div>
                     </div>
-                    <div class="achievement-card locked">
-                        <i class="fas fa-lock achievement-icon"></i>
-                        <h4>Division Pro</h4>
-                        <p>Complete all division lessons to unlock</p>
+                    
+                    <div class="progress-category">
+                        <h4>C-R-A Learning Method</h4>
+                        <div class="progress-item-list" id="cra-lessons">
+                            <!-- C-R-A lessons will be populated by JS -->
+                        </div>
                     </div>
-                    <div class="achievement-card locked">
-                        <i class="fas fa-trophy achievement-icon"></i>
-                        <h4>Math Champion</h4>
-                        <p>Score 100% on all games</p>
+                </div>
+
+                <!-- Games Stats Section -->
+                <div class="progress-section">
+                    <h3><i class="fas fa-gamepad"></i> Games Statistics</h3>
+                    <div class="progress-item-list" id="games-stats">
+                        <!-- Games stats will be populated by JS -->
                     </div>
+                </div>
+
+                <div class="achievement-grid" id="achievements-container">
+                    <!-- Achievements will be populated by JS -->
                 </div>
             </div>
         </section>
@@ -65,23 +78,19 @@
         <section class="recent-activity">
             <div class="container">
                 <h3>Recent Activity</h3>
-                <div class="activity-timeline">
-                    <div class="activity-item">
-                        <i class="fas fa-check-circle activity-icon"></i>
-                        <div class="activity-content">
-                            <h4>Completed "Multiplication Basics"</h4>
-                            <p>2 days ago</p>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <i class="fas fa-gamepad activity-icon"></i>
-                        <div class="activity-content">
-                            <h4>Played "Math Race"</h4>
-                            <p>Score: 8/10</p>
-                            <p>3 days ago</p>
-                        </div>
-                    </div>
+                <div class="activity-timeline" id="activity-timeline">
+                    <!-- Recent activity will be populated by JS -->
                 </div>
+            </div>
+        </section>
+        
+        <section class="progress-actions">
+            <div class="container">
+                <div class="action-buttons">
+                    <button id="reset-progress" class="btn"><i class="fas fa-redo"></i> Reset Progress Data</button>
+                    <button id="view-details" class="btn"><i class="fas fa-chart-bar"></i> View Detailed Stats</button>
+                </div>
+                <p class="note"><small>Note: Progress is saved locally on your device.</small></p>
             </div>
         </section>
     </main>
@@ -96,5 +105,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/progress-tracker.js"></script>
+    <script src="js/progress-page.js"></script>
 </body>
 </html>

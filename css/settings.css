@@ -1,0 +1,182 @@
+/* 
+ * Math Fun - Settings Page Styles
+ * Additional styles for the settings page
+ */
+
+/* Theme Preview Box */
+.theme-preview {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--med-gray);
+    border-radius: var(--border-radius);
+}
+
+.preview-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    border: 1px dashed var(--med-gray);
+}
+
+.preview-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.preview-math {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.preview-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+/* Setting group styling */
+.setting-group {
+    margin-bottom: 30px;
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.setting-item {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.setting-item select,
+.setting-item input[type="text"],
+.setting-item input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--med-gray);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.setting-item.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.setting-item.checkbox input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+.setting-item.checkbox label {
+    margin-bottom: 0;
+}
+
+/* Setting actions */
+.setting-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.setting-actions .btn {
+    flex: 1;
+}
+
+.btn-secondary {
+    background-color: var(--med-gray);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+/* Setting info message */
+.setting-info {
+    padding: 10px 15px;
+    background-color: rgba(74, 107, 255, 0.1);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.setting-info p {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Dark mode theme preview */
+body.dark-mode-preview .preview-content {
+    background-color: #222;
+}
+
+body.dark-mode-preview .preview-text {
+    color: #f0f0f0;
+}
+
+body.dark-mode-preview .preview-math {
+    color: #7b9eff;
+}
+
+body.dark-mode-preview .preview-button {
+    background-color: #7b9eff;
+}
+
+/* High contrast theme preview */
+body.high-contrast-preview .preview-content {
+    background-color: white;
+}
+
+body.high-contrast-preview .preview-text {
+    color: black;
+}
+
+body.high-contrast-preview .preview-math {
+    color: blue;
+}
+
+body.high-contrast-preview .preview-button {
+    background-color: blue;
+    color: white;
+}
+
+/* Reduced colors theme preview */
+body.reduced-colors-preview .preview-content {
+    background-color: #f5f5f5;
+}
+
+body.reduced-colors-preview .preview-text {
+    color: #333;
+}
+
+body.reduced-colors-preview .preview-math {
+    color: #333;
+}
+
+body.reduced-colors-preview .preview-button {
+    background-color: #666;
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .setting-actions {
+        flex-direction: column;
+    }
+}
