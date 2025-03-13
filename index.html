@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add additional meta tags for accessibility -->
     <meta name="description" content="A fun way to learn multiplication and division for children with learning disabilities">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="images/icons/icon-192x192.png">
 </head>
 <body>
     <header>
@@ -67,6 +78,16 @@
         </div>
     </footer>
 
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/pwa.js"></script>
 </body>
 </html>

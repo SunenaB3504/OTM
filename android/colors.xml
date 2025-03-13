@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Match the PWA's color scheme -->
+    <color name="primary">#4a6bff</color>
+    <color name="primary_dark">#3251d1</color>
+    <color name="accent">#ffcc00</color>
+    <color name="accent_dark">#d1a800</color>
+    
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="medium_gray">#CCCCCC</color>
+    <color name="dark_gray">#666666</color>
+</resources>
