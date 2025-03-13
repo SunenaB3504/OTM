@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Practice Worksheet - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Practice division and its relationship to multiplication with printable worksheets">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Worksheet specific styles */
+        .worksheet-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .problem-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .problem {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px dashed #9b59b6;
+            width: 120px;
+        }
+        
+        .wide-problem {
+            width: 80%;
+        }
+        
+        .equation {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .answer-box {
+            border: 1px solid #000;
+            width: 40px;
+            height: 30px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fact-family {
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f5eef8;
+        }
+        
+        .fact-family-item {
+            border-bottom: 1px dashed #ccc;
+            padding: 5px 0;
+        }
+        
+        .fact-family-item:last-child {
+            border-bottom: none;
+        }
+        
+        .group-visual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        .group {
+            border: 1px solid #9b59b6;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 5px;
+        }
+        
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: #9b59b6;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .answers-section {
+            margin-top: 40px;
+            border-top: 2px dashed #999;
+            padding-top: 20px;
+            page-break-before: always;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Division Introduction</a>
+            </div>
+            
+            <h1>Division Practice Worksheet</h1>
+            <p>Practice the relationship between division and multiplication!</p>
+            
+            <button class="btn no-print" onclick="window.print()"><i class="fas fa-print"></i> Print Worksheet</button>
+            
+            <div class="worksheet-section">
+                <h2>Convert Division to Multiplication</h2>
+                <p>Write the matching multiplication fact for each division problem.</p>
+                
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">14 ÷ 2 = 7</div>
+                        <p>Multiplication fact:</p>
+                        <div class="answer-box"></div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">18 ÷ 3 = 6</div>
+                        <p>Multiplication fact:</p>
+                        <div class="answer-box"></div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">24 ÷ 8 = 3</div>
+                        <p>Multiplication fact:</p>
+                        <div class="answer-box"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Convert Multiplication to Division</h2>
+                <p>Write <em>two</em> division facts for each multiplication fact.</p>
+                
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">5 × 6 = 30</div>
+                        <p>Division fact 1:</p>
+                        <div class="answer-box"></div>
+                        <p>Division fact 2:</p>
+                        <div class="answer-box"></div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">9 × 4 = 36</div>
+                        <p>Division fact 1:</p>
+                        <div class="answer-box"></div>
+                        <p>Division fact 2:</p>
+                        <div class="answer-box"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Complete the Fact Families</h2>
+                <p>Fill in the missing parts of each fact family.</p>
+                
+                <div class="problem-row">
+                    <div class="fact-family">
+                        <h4>Fact Family with: 4, 7, and 28</h4>
+                        <div class="fact-family-item">
+                            <p>4 × 7 = _______</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>7 × 4 = _______</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>28 ÷ 4 = _______</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>28 ÷ 7 = _______</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fact-family">
+                        <h4>Fact Family with: 6, 5, and 30</h4>
+                        <div class="fact-family-item">
+                            <p>_____ × _____ = 30</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>_____ × _____ = 30</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>30 ÷ _____ = _____</p>
+                        </div>
+                        <div class="fact-family-item">
+                            <p>30 ÷ _____ = _____</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Division with Objects</h2>
+                <p>Look at the groups of objects. Write the division and multiplication facts.</p>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>15 objects divided into 3 equal groups:</p>
+                        <div class="group-visual">
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        
+                        <p>Division fact: _____________________</p>
+                        <p>Multiplication fact: _____________________</p>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>12 objects divided into 4 equal groups:</p>
+                        <div class="group-visual">
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        
+                        <p>Division fact: _____________________</p>
+                        <p>Multiplication fact: _____________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Real-World Problems</h2>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>1. Maria has 24 stickers and wants to give the same number to each of her 6 friends. How many stickers will each friend get?</p>
+                        <p>Division equation: _____________________</p>
+                        <p>Related multiplication fact: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>2. A baker has 42 cupcakes and puts them into boxes of 7 cupcakes each. How many boxes does the baker need?</p>
+                        <p>Division equation: _____________________</p>
+                        <p>Related multiplication fact: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>3. There are 35 students going on a field trip. If 5 students fit in each car, how many cars are needed?</p>
+                        <p>Division equation: _____________________</p>
+                        <p>Related multiplication fact: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Check Your Multiplication</h2>
+                <p>Use division to check if these multiplication facts are correct:</p>
+                
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">5 × 7 = 35</div>
+                        <p>Check using division:</p>
+                        <p>35 ÷ 5 = _____</p>
+                        <p>35 ÷ 7 = _____</p>
+                        <p>Is it correct? _____</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">6 × 6 = 36</div>
+                        <p>Check using division:</p>
+                        <p>36 ÷ 6 = _____</p>
+                        <p>Is it correct? _____</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">4 × 8 = 30</div>
+                        <p>Check using division:</p>
+                        <p>30 ÷ 4 = _____</p>
+                        <p>30 ÷ 8 = _____</p>
+                        <p>Is it correct? _____</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="answers-section">
+                <h2 class="no-print">Answer Key</h2>
+                <div class="no-print">
+                    <p><strong>Convert Division to Multiplication:</strong></p>
+                    <ul>
+                        <li>14 ÷ 2 = 7: 2 × 7 = 14</li>
+                        <li>18 ÷ 3 = 6: 3 × 6 = 18</li>
+                        <li>24 ÷ 8 = 3: 8 × 3 = 24</li>
+                    </ul>
+                    
+                    <p><strong>Convert Multiplication to Division:</strong></p>
+                    <ul>
+                        <li>5 × 6 = 30: 30 ÷ 5 = 6 and 30 ÷ 6 = 5</li>
+                        <li>9 × 4 = 36: 36 ÷ 9 = 4 and 36 ÷ 4 = 9</li>
+                    </ul>
+                    
+                    <p><strong>Complete the Fact Families:</strong></p>
+                    <ul>
+                        <li>Fact Family with 4, 7, and 28:
+                            <ul>
+                                <li>4 × 7 = 28</li>
+                                <li>7 × 4 = 28</li>
+                                <li>28 ÷ 4 = 7</li>
+                                <li>28 ÷ 7 = 4</li>
+                            </ul>
+                        </li>
+                        <li>Fact Family with 6, 5, and 30:
+                            <ul>
+                                <li>6 × 5 = 30</li>
+                                <li>5 × 6 = 30</li>
+                                <li>30 ÷ 6 = 5</li>
+                                <li>30 ÷ 5 = 6</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p><strong>Division with Objects:</strong></p>
+                    <ul>
+                        <li>15 objects divided into 3 equal groups:
+                            <ul>
+                                <li>Division fact: 15 ÷ 3 = 5</li>
+                                <li>Multiplication fact: 3 × 5 = 15</li>
+                            </ul>
+                        </li>
+                        <li>12 objects divided into 4 equal groups:
+                            <ul>
+                                <li>Division fact: 12 ÷ 4 = 3</li>
+                                <li>Multiplication fact: 4 × 3 = 12</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p><strong>Real-World Problems:</strong></p>
+                    <ul>
+                        <li>Problem 1: 24 ÷ 6 = 4 stickers per friend; 6 × 4 = 24</li>
+                        <li>Problem 2: 42 ÷ 7 = 6 boxes; 7 × 6 = 42</li>
+                        <li>Problem 3: 35 ÷ 5 = 7 cars; 5 × 7 = 35</li>
+                    </ul>
+                    
+                    <p><strong>Check Your Multiplication:</strong></p>
+                    <ul>
+                        <li>5 × 7 = 35: 35 ÷ 5 = 7, 35 ÷ 7 = 5 (Yes, it's correct)</li>
+                        <li>6 × 6 = 36: 36 ÷ 6 = 6 (Yes, it's correct)</li>
+                        <li>4 × 8 = 30: 30 ÷ 4 = 7.5, 30 ÷ 8 = 3.75 (No, it's not correct. 4 × 8 = 32)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="no-print" style="margin: 30px 0; text-align: center;">
+                <a href="division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Division Introduction</a>
+                <a href="../lessons.html" class="btn">All Lessons <i class="fas fa-th-list"></i></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Multiplication - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Learn multiplication as repeated addition with fun, interactive examples">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Specific styles for multiplication lesson */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .concept-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            background-color: #ecf0f1;
+        }
+        
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .interactive-area {
+            border: 2px dashed #7f8c8d;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .object-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .object {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 5px;
+            user-select: none;
+        }
+        
+        .equation {
+            font-size: 24px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .number-line {
+            height: 5px;
+            background-color: black;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .number-mark {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: black;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+        
+        .number-label {
+            position: absolute;
+            bottom: -25px;
+            transform: translateX(-50%);
+        }
+        
+        .jump {
+            position: absolute;
+            height: 30px;
+            border: 2px solid #e74c3c;
+            border-top: none;
+            bottom: 5px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .object {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="../lessons.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Lessons</a>
+            </div>
+            
+            <h1>Introduction to Multiplication</h1>
+            <h2>Multiplication as Repeated Addition</h2>
+            
+            <div class="concept-section">
+                <h3>What is Multiplication?</h3>
+                <p>Multiplication is a faster way to add the same number multiple times. When we multiply, we're adding a number over and over again.</p>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 1: Let's Use Objects We Know</h3>
+                <p>We can use familiar objects like blocks, toy cars, or candies to learn multiplication.</p>
+                <div class="example">
+                    <p>For example, let's use <strong>blocks</strong> to understand multiplication.</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 2: Starting Small</h3>
+                <p>Let's begin with small numbers like 2 × 3 (read as "two times three").</p>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 3: Repeated Addition Example</h3>
+                <p>Let's see how 2 × 3 works:</p>
+                
+                <div class="interactive-area">
+                    <h4>2 × 3 means 2 groups of 3</h4>
+                    
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 1</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                                <div class="object">3</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 2</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                                <div class="object">3</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">
+                        3 + 3 = 6
+                    </div>
+                    <div class="equation">
+                        So, 2 × 3 = 6
+                    </div>
+                    
+                    <p>We added 3 two times to get 6.</p>
+                </div>
+                
+                <div class="interactive-area">
+                    <h4>3 × 4 means 3 groups of 4</h4>
+                    
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 1</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                                <div class="object">3</div>
+                                <div class="object">4</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 2</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                                <div class="object">3</div>
+                                <div class="object">4</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 3</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                                <div class="object">3</div>
+                                <div class="object">4</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">
+                        4 + 4 + 4 = 12
+                    </div>
+                    <div class="equation">
+                        So, 3 × 4 = 12
+                    </div>
+                    
+                    <p>We added 4 three times to get 12.</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 4: Let's Say It Together</h3>
+                <p>When we see 2 × 3, we can say:</p>
+                <ul>
+                    <li>"2 groups of 3"</li>
+                    <li>"3 added 2 times"</li>
+                    <li>"3 plus another 3"</li>
+                </ul>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 5: The Multiplication Symbol (×)</h3>
+                <p>The "×" symbol means we're doing multiplication.</p>
+                <div class="example">
+                    <p>When we write 2 × 3 = 6, it means the same as 3 + 3 = 6.</p>
+                    <p>When we write 3 × 4 = 12, it means the same as 4 + 4 + 4 = 12.</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 6: More Examples</h3>
+                <div class="interactive-area">
+                    <h4>Let's try 4 × 2</h4>
+                    <p>4 × 2 means 4 groups of 2 or 2 added 4 times</p>
+                    
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 1</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 2</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 3</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 10px; text-align: center;">
+                            <strong>Group 4</strong>
+                            <div class="object-grid">
+                                <div class="object">1</div>
+                                <div class="object">2</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">
+                        2 + 2 + 2 + 2 = 8
+                    </div>
+                    <div class="equation">
+                        So, 4 × 2 = 8
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 7: Real-Life Examples</h3>
+                
+                <div class="example">
+                    <h4>Example 1: Friends with Stickers</h4>
+                    <p>If 3 friends each have 4 stickers, how many stickers are there in total?</p>
+                    <p>That's 3 groups of 4 stickers.</p>
+                    <div class="equation">
+                        4 + 4 + 4 = 12
+                    </div>
+                    <div class="equation">
+                        So, 3 × 4 = 12 stickers in total
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 2: Car Wheels</h4>
+                    <p>Each car has 4 wheels. How many wheels do 2 cars have?</p>
+                    <p>That's 2 groups of 4 wheels.</p>
+                    <div class="equation">
+                        4 + 4 = 8
+                    </div>
+                    <div class="equation">
+                        So, 2 × 4 = 8 wheels in total
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 3: Dog Legs</h4>
+                    <p>Each dog has 4 legs. How many legs do 3 dogs have?</p>
+                    <p>That's 3 groups of 4 legs.</p>
+                    <div class="equation">
+                        4 + 4 + 4 = 12
+                    </div>
+                    <div class="equation">
+                        So, 3 × 4 = 12 legs in total
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 8: Hands-On Activities</h3>
+                <p>Practice makes perfect! Try these activities:</p>
+                
+                <div class="example">
+                    <h4>Activity 1: Make Your Own Groups</h4>
+                    <p>Take 12 objects and divide them into 3 equal groups. How many are in each group?</p>
+                    <p>Answer: 4 in each group, so 3 × 4 = 12</p>
+                </div>
+                
+                <div class="example">
+                    <h4>Activity 2: Number Line Jumps</h4>
+                    <p>For 3 × 4, we can jump by 4 three times on a number line.</p>
+                    
+                    <div style="position: relative; margin: 50px 20px;">
+                        <div class="number-line" style="width: 100%;">
+                            <div class="number-mark" style="left: 0%;">
+                                <div class="number-label">0</div>
+                            </div>
+                            <div class="number-mark" style="left: 25%;">
+                                <div class="number-label">4</div>
+                            </div>
+                            <div class="number-mark" style="left: 50%;">
+                                <div class="number-label">8</div>
+                            </div>
+                            <div class="number-mark" style="left: 75%;">
+                                <div class="number-label">12</div>
+                            </div>
+                            <div class="number-mark" style="left: 100%;">
+                                <div class="number-label">16</div>
+                            </div>
+                            
+                            <div class="jump" style="left: 0%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+4</div>
+                            </div>
+                            <div class="jump" style="left: 25%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+4</div>
+                            </div>
+                            <div class="jump" style="left: 50%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+4</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">
+                        0 + 4 + 4 + 4 = 12
+                    </div>
+                    <div class="equation">
+                        So, 3 × 4 = 12
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 9: Practice with Different Numbers</h3>
+                
+                <div class="interactive-area">
+                    <h4>Try these multiplication facts:</h4>
+                    
+                    <div class="example">
+                        <p>2 × 5 = ?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>2 × 5 = 5 + 5 = 10</p>
+                            <p>2 groups of 5 equals 10</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>5 × 2 = ?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>5 × 2 = 2 + 2 + 2 + 2 + 2 = 10</p>
+                            <p>5 groups of 2 equals 10</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>3 × 5 = ?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>3 × 5 = 5 + 5 + 5 = 15</p>
+                            <p>3 groups of 5 equals 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Step 10: Let's Check What We Learned</h3>
+                
+                <div class="interactive-area">
+                    <h4>Questions to answer:</h4>
+                    
+                    <div class="example">
+                        <p>1. What does multiplication mean?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>Multiplication is adding the same number many times.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>2. What does 4 × 3 mean?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>It means 4 groups of 3 or adding 3 four times (3 + 3 + 3 + 3).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>3. If I have 3 baskets with 6 apples in each, how many apples do I have total?</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>3 × 6 = 6 + 6 + 6 = 18 apples</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Let's Create Your Own Example!</h3>
+                <p>Think of your own multiplication problem using things around you.</p>
+                <p>For example: "If I have 2 hands and each hand has 5 fingers, how many fingers total?"</p>
+                <p>Answer: 2 × 5 = 10 fingers</p>
+            </div>
+            
+            <div class="next-lesson">
+                <p>Ready for more practice?</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <a href="multiplication-worksheet.html" class="btn btn-large">Try Practice Problems <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+    <script>
+        // Simple script to make the page more interactive
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a small animation to the objects when clicked
+            const objects = document.querySelectorAll('.object');
+            objects.forEach(obj => {
+                obj.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

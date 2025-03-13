@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division and Multiplication Connection - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Learn how division and multiplication are related as inverse operations">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Specific styles for division lesson */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .concept-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #9b59b6;
+            background-color: #f5eef8;
+        }
+        
+        .example {
+            background-color: #f4ecf7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .interactive-area {
+            border: 2px dashed #8e44ad;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .fact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .fact-table th, .fact-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .fact-table th {
+            background-color: #9b59b6;
+            color: white;
+        }
+        
+        .fact-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .object-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 5px;
+        }
+        
+        .object {
+            width: 30px;
+            height: 30px;
+            background-color: #9b59b6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 3px;
+            user-select: none;
+        }
+        
+        .group-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 20px;
+        }
+        
+        .group {
+            border: 2px solid #8e44ad;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            min-width: 100px;
+        }
+        
+        .equation {
+            font-size: 24px;
+            margin: 15px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="../lessons.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Lessons</a>
+            </div>
+            
+            <h1>Division and Multiplication Connection</h1>
+            <h2>Learning How Division and Multiplication Work Together</h2>
+            
+            <div class="concept-section">
+                <h3>1. The Inverse Relationship</h3>
+                <p>Multiplication and division are like opposites that work together! If multiplication builds something up, division breaks it down into equal parts.</p>
+                
+                <div class="example">
+                    <h4>Tower Example</h4>
+                    <p>Think of building a tower with blocks (multiplication) and then taking it apart to see how many blocks are in each layer (division).</p>
+                    
+                    <div class="interactive-area">
+                        <p>If we have 3 layers with 4 blocks in each layer:</p>
+                        <div class="equation">3 × 4 = 12 blocks total</div>
+                        
+                        <p>If we take 12 blocks and make 3 equal layers:</p>
+                        <div class="equation">12 ÷ 3 = 4 blocks per layer</div>
+                        
+                        <p>If we take 12 blocks and make layers of 4 blocks each:</p>
+                        <div class="equation">12 ÷ 4 = 3 layers</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>2. Using Division Facts to Find Multiplication Facts</h3>
+                <p>We can use division facts we already know to figure out multiplication facts!</p>
+                
+                <div class="example">
+                    <table class="fact-table">
+                        <tr>
+                            <th>Division Fact</th>
+                            <th>Multiplication Fact</th>
+                        </tr>
+                        <tr>
+                            <td>10 ÷ 2 = 5</td>
+                            <td>2 × 5 = 10</td>
+                        </tr>
+                        <tr>
+                            <td>12 ÷ 3 = 4</td>
+                            <td>3 × 4 = 12</td>
+                        </tr>
+                        <tr>
+                            <td>15 ÷ 5 = 3</td>
+                            <td>5 × 3 = 15</td>
+                        </tr>
+                        <tr>
+                            <td>8 ÷ 2 = 4</td>
+                            <td>2 × 4 = 8</td>
+                        </tr>
+                    </table>
+                    
+                    <p>If you know that 12 ÷ 3 = 4, then you also know that 3 × 4 = 12!</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>3. Practice Converting Division to Multiplication</h3>
+                <p>Let's practice changing division problems into multiplication problems:</p>
+                
+                <div class="interactive-area">
+                    <table class="fact-table">
+                        <tr>
+                            <th>Division Fact</th>
+                            <th>Multiplication Fact</th>
+                        </tr>
+                        <tr>
+                            <td>18 ÷ 6 = 3</td>
+                            <td>6 × 3 = 18</td>
+                        </tr>
+                        <tr>
+                            <td>20 ÷ 4 = 5</td>
+                            <td>4 × 5 = 20</td>
+                        </tr>
+                        <tr>
+                            <td>16 ÷ 8 = 2</td>
+                            <td>8 × 2 = 16</td>
+                        </tr>
+                        <tr>
+                            <td>21 ÷ 7 = 3</td>
+                            <td>7 × 3 = 21</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="example">
+                    <h4>Try it yourself!</h4>
+                    <p>9 ÷ 3 = 3. What's the multiplication fact?</p>
+                    <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                    <div style="display: none;">
+                        <p>3 × 3 = 9</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>4. Fact Families</h3>
+                <p>A fact family is a group of related multiplication and division facts using the same numbers.</p>
+                
+                <div class="example">
+                    <h4>Fact Family with 2, 3, and 6</h4>
+                    <table class="fact-table">
+                        <tr>
+                            <th colspan="2">Fact Family</th>
+                        </tr>
+                        <tr>
+                            <td>2 × 3 = 6</td>
+                            <td>6 ÷ 2 = 3</td>
+                        </tr>
+                        <tr>
+                            <td>3 × 2 = 6</td>
+                            <td>6 ÷ 3 = 2</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="interactive-area">
+                    <h4>More Fact Families</h4>
+                    <table class="fact-table">
+                        <tr>
+                            <th>Numbers</th>
+                            <th>Fact Family</th>
+                        </tr>
+                        <tr>
+                            <td>3, 4, 12</td>
+                            <td>
+                                3 × 4 = 12<br>
+                                4 × 3 = 12<br>
+                                12 ÷ 3 = 4<br>
+                                12 ÷ 4 = 3
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5, 2, 10</td>
+                            <td>
+                                5 × 2 = 10<br>
+                                2 × 5 = 10<br>
+                                10 ÷ 5 = 2<br>
+                                10 ÷ 2 = 5
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6, 4, 24</td>
+                            <td>
+                                6 × 4 = 24<br>
+                                4 × 6 = 24<br>
+                                24 ÷ 6 = 4<br>
+                                24 ÷ 4 = 6
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>5. Interactive Activities with Objects</h3>
+                <p>Let's use objects to see how division and multiplication are related:</p>
+                
+                <div class="interactive-area">
+                    <h4>Example with 12 Objects</h4>
+                    
+                    <div class="object-container">
+                        <div class="object">1</div>
+                        <div class="object">2</div>
+                        <div class="object">3</div>
+                        <div class="object">4</div>
+                        <div class="object">5</div>
+                        <div class="object">6</div>
+                        <div class="object">7</div>
+                        <div class="object">8</div>
+                        <div class="object">9</div>
+                        <div class="object">10</div>
+                        <div class="object">11</div>
+                        <div class="object">12</div>
+                    </div>
+                    
+                    <p>If we divide 12 objects into 3 equal groups:</p>
+                    
+                    <div class="group-container">
+                        <div class="group">
+                            <div class="object">1</div>
+                            <div class="object">2</div>
+                            <div class="object">3</div>
+                            <div class="object">4</div>
+                        </div>
+                        <div class="group">
+                            <div class="object">5</div>
+                            <div class="object">6</div>
+                            <div class="object">7</div>
+                            <div class="object">8</div>
+                        </div>
+                        <div class="group">
+                            <div class="object">9</div>
+                            <div class="object">10</div>
+                            <div class="object">11</div>
+                            <div class="object">12</div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">12 ÷ 3 = 4</div>
+                    <p>Each group has 4 objects.</p>
+                    
+                    <p>Looking at it as multiplication:</p>
+                    <div class="equation">3 groups × 4 objects = 12 objects total</div>
+                    <div class="equation">3 × 4 = 12</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>6. Real-World Scenarios</h3>
+                
+                <div class="example">
+                    <h4>Example 1: Buying Candy</h4>
+                    <p>If you have 20 cents and candies cost 5 cents each, how many candies can you buy?</p>
+                    <div class="equation">20 ÷ 5 = 4 candies</div>
+                    
+                    <p>If you buy 4 candies at 5 cents each, how much do they cost in total?</p>
+                    <div class="equation">4 × 5 = 20 cents</div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 2: Sharing Cookies</h4>
+                    <p>If you have 12 cookies and share them equally among 3 friends, how many cookies does each friend get?</p>
+                    <div class="equation">12 ÷ 3 = 4 cookies per friend</div>
+                    
+                    <p>If 3 friends each have 4 cookies, how many cookies are there in total?</p>
+                    <div class="equation">3 × 4 = 12 cookies total</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>7. Quizzes and Games</h3>
+                
+                <div class="interactive-area">
+                    <h4>Match the Facts</h4>
+                    <p>For each multiplication fact, write the corresponding division facts:</p>
+                    
+                    <div class="example">
+                        <p>7 × 6 = 42</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>42 ÷ 7 = 6 and 42 ÷ 6 = 7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>5 × 9 = 45</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>45 ÷ 5 = 9 and 45 ÷ 9 = 5</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Fact Family Challenge</h4>
+                    <p>Complete the fact family for numbers 8, 7, and 56:</p>
+                    <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                    <div style="display: none;">
+                        <table class="fact-table">
+                            <tr>
+                                <td>8 × 7 = 56</td>
+                                <td>56 ÷ 8 = 7</td>
+                            </tr>
+                            <tr>
+                                <td>7 × 8 = 56</td>
+                                <td>56 ÷ 7 = 8</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>8. Regular Reinforcement</h3>
+                <p>Remember to check multiplication using division!</p>
+                
+                <div class="example">
+                    <h4>Checking Your Work</h4>
+                    <p>If you think 6 × 7 = 42, you can check by division:</p>
+                    <ul>
+                        <li>42 ÷ 6 = 7 ✓</li>
+                        <li>42 ÷ 7 = 6 ✓</li>
+                    </ul>
+                    <p>Both division problems give the expected answer, so 6 × 7 = 42 is correct!</p>
+                </div>
+                
+                <div class="interactive-area">
+                    <h4>Try These Practice Problems</h4>
+                    <p>1. If 9 × 4 = 36, what is 36 ÷ 9?</p>
+                    <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                    <div style="display: none;">
+                        <p>36 ÷ 9 = 4</p>
+                    </div>
+                    
+                    <p>2. If 8 × 5 = 40, what is 40 ÷ 5?</p>
+                    <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                    <div style="display: none;">
+                        <p>40 ÷ 5 = 8</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="next-lesson">
+                <p>Ready to practice what you've learned?</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <a href="division-worksheet.html" class="btn btn-large">Try Practice Problems <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+    <script>
+        // Make objects interactive
+        document.addEventListener('DOMContentLoaded', function() {
+            const objects = document.querySelectorAll('.object');
+            objects.forEach(obj => {
+                obj.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

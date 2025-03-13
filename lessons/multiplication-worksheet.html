@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Practice Worksheet - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Practice multiplication as repeated addition with printable worksheets">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Worksheet specific styles */
+        .worksheet-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        .problem-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .problem {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px dashed #bbb;
+            width: 120px;
+        }
+        .equation {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .answer-box {
+            border: 1px solid #000;
+            width: 40px;
+            height: 30px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .group-visual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .group {
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 5px;
+        }
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 2px;
+        }
+        .answers-section {
+            margin-top: 40px;
+            border-top: 2px dashed #999;
+            padding-top: 20px;
+            page-break-before: always;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="multiplication-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Introduction</a>
+            </div>
+            
+            <h1>Multiplication Practice Worksheet</h1>
+            <p>Practice what you've learned about multiplication as repeated addition!</p>
+            
+            <button class="btn print-button no-print" onclick="window.print()"><i class="fas fa-print"></i> Print Worksheet</button>
+            
+            <!-- Existing worksheet content -->
+            <div class="worksheet-section">
+                <h2>Draw and Count</h2>
+                <p>Draw objects in groups to solve these multiplication problems.</p>
+            
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">2 × 3 = </div>
+                        <div class="answer-box"></div>
+                        <p>Draw 2 groups with 3 objects in each</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">3 × 2 = </div>
+                        <div class="answer-box"></div>
+                        <p>Draw 3 groups with 2 objects in each</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">4 × 2 = </div>
+                        <div class="answer-box"></div>
+                        <p>Draw 4 groups with 2 objects in each</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Write the Repeated Addition</h2>
+                <p>Write the repeated addition equation for each multiplication problem.</p>
+            
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">3 × 4 = </div>
+                        <div class="answer-box"></div>
+                        <p>Addition: ___________________</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">5 × 3 = </div>
+                        <div class="answer-box"></div>
+                        <p>Addition: ___________________</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">2 × 6 = </div>
+                        <div class="answer-box"></div>
+                        <p>Addition: ___________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Count the Groups</h2>
+                <p>Count the objects in each group and write the multiplication equation.</p>
+            
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="group-visual">
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <p>____ × ____ = ____</p>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="group-visual">
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div class="group">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <p>____ × ____ = ____</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Real-World Problems</h2>
+            
+                <div class="problem-row">
+                    <div class="problem" style="width: 80%;">
+                        <p>1. Sam has 3 boxes. Each box has 5 toys. How many toys does Sam have in total?</p>
+                        <p>Equation: _____ × _____ = _____</p>
+                        <p>Answer: _____________</p>
+                    </div>
+                </div>
+            
+                <div class="problem-row">
+                    <div class="problem" style="width: 80%;">
+                        <p>2. There are 4 bicycles. How many wheels are there in total?</p>
+                        <p>Equation: _____ × _____ = _____</p>
+                        <p>Answer: _____________</p>
+                    </div>
+                </div>
+            
+                <div class="problem-row">
+                    <div class="problem" style="width: 80%;">
+                        <p>3. Maria has 5 bags. She puts 3 apples in each bag. How many apples does she have?</p>
+                        <p>Equation: _____ × _____ = _____</p>
+                        <p>Answer: _____________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="answers-section">
+                <h2 class="no-print">Answer Key</h2>
+                <div class="no-print">
+                    <p>Draw and Count:</p>
+                    <ul>
+                        <li>2 × 3 = 6</li>
+                        <li>3 × 2 = 6</li>
+                        <li>4 × 2 = 8</li>
+                    </ul>
+                    
+                    <p>Write the Repeated Addition:</p>
+                    <ul>
+                        <li>3 × 4 = 12 (Addition: 4 + 4 + 4 = 12)</li>
+                        <li>5 × 3 = 15 (Addition: 3 + 3 + 3 + 3 + 3 = 15)</li>
+                        <li>2 × 6 = 12 (Addition: 6 + 6 = 12)</li>
+                    </ul>
+                    
+                    <p>Count the Groups:</p>
+                    <ul>
+                        <li>3 × 3 = 9</li>
+                        <li>2 × 4 = 8</li>
+                    </ul>
+                    
+                    <p>Real-World Problems:</p>
+                    <ul>
+                        <li>1. 3 × 5 = 15 toys</li>
+                        <li>2. 4 × 2 = 8 wheels</li>
+                        <li>3. 5 × 3 = 15 apples</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="no-print" style="margin: 30px 0; text-align: center;">
+                <a href="multiplication-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Introduction</a>
+                <a href="../lessons.html" class="btn">All Lessons <i class="fas fa-th-list"></i></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+</body>
+</html>
