@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games - Math Fun</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/games.css">
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -35,48 +36,147 @@
         <section class="games-grid">
             <div class="container">
                 <div class="game-card">
-                    <h3>Math Race</h3>
+                    <h3>Math Quiz Challenge</h3>
                     <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_gaming_vpvg.svg" 
-                         data-fallback="images/math-race.png"
-                         alt="Math race game" class="game-image">
-                    <p>Race to the finish line by solving multiplication problems</p>
-                    <a href="#math-race" class="btn">Play Now</a>
+                         data-fallback="images/math-quiz.png"
+                         alt="Math quiz game" class="game-image">
+                    <p>Test your multiplication skills with fun questions!</p>
+                    <a href="#math-quiz" class="btn" id="open-math-quiz">Play Now</a>
                 </div>
                 <div class="game-card">
-                    <h3>Number Match</h3>
+                    <h3>Fact Match</h3>
                     <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_options_re_9vxh.svg" 
-                         data-fallback="images/number-match.png"
-                         alt="Number matching game" class="game-image">
-                    <p>Match the correct answers to division problems</p>
-                    <a href="#number-match" class="btn">Play Now</a>
+                         data-fallback="images/fact-match.png"
+                         alt="Fact matching game" class="game-image">
+                    <p>Match multiplication facts with their answers</p>
+                    <a href="#fact-match" class="btn" id="open-fact-match">Play Now</a>
                 </div>
                 <div class="game-card">
-                    <h3>Math Memory</h3>
+                    <h3>Math Bingo</h3>
                     <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_memory_storage_reh0.svg" 
-                         data-fallback="images/memory-game.png"
-                         alt="Math memory game" class="game-image">
-                    <p>Find matching pairs of multiplication facts</p>
-                    <a href="#" class="btn">Play Now</a>
+                         data-fallback="images/math-bingo.png"
+                         alt="Math bingo game" class="game-image">
+                    <p>Play bingo with multiplication facts!</p>
+                    <a href="#math-bingo" class="btn" id="open-math-bingo">Play Now</a>
                 </div>
-                <!-- Future expansion: Add more game cards here -->
             </div>
         </section>
         
-        <section id="math-race" class="game-section">
+        <!-- Math Quiz Game -->
+        <section id="math-quiz" class="game-section">
             <div class="container">
-                <h2><i class="fas fa-flag-checkered"></i> Math Race Game</h2>
-                <p>Answer multiplication questions as quickly as you can!</p>
-                <div id="math-race-game" class="game-container"></div>
+                <h2><i class="fas fa-question-circle"></i> Math Quiz Challenge</h2>
+                <p>Answer multiplication and division questions to earn points!</p>
+                
+                <div class="game-settings">
+                    <h3>Game Settings</h3>
+                    <div class="setting-group">
+                        <label for="quiz-difficulty">Difficulty:</label>
+                        <select id="quiz-difficulty">
+                            <option value="easy">Easy (1-5 times tables)</option>
+                            <option value="medium">Medium (1-10 times tables)</option>
+                            <option value="hard">Hard (1-12 times tables)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="quiz-type">Question Type:</label>
+                        <select id="quiz-type">
+                            <option value="multiplication">Multiplication</option>
+                            <option value="division">Division</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="quiz-questions">Number of Questions:</label>
+                        <select id="quiz-questions">
+                            <option value="5">5 Questions</option>
+                            <option value="10" selected>10 Questions</option>
+                            <option value="15">15 Questions</option>
+                            <option value="20">20 Questions</option>
+                        </select>
+                    </div>
+                    <button id="start-quiz" class="btn btn-large">Start Quiz</button>
+                </div>
+                
+                <div id="quiz-game-container" class="game-container">
+                    <!-- Quiz game will be rendered here by JavaScript -->
+                </div>
             </div>
         </section>
         
-        <section id="number-match" class="game-section">
+        <!-- Fact Match Game -->
+        <section id="fact-match" class="game-section">
             <div class="container">
-                <h2><i class="fas fa-puzzle-piece"></i> Number Match Game</h2>
-                <p>Practice your division skills with this fun matching game.</p>
-                <div id="number-match-game" class="game-container"></div>
+                <h2><i class="fas fa-puzzle-piece"></i> Fact Match</h2>
+                <p>Match each multiplication fact with its correct answer!</p>
+                
+                <div class="game-settings">
+                    <h3>Game Settings</h3>
+                    <div class="setting-group">
+                        <label for="match-difficulty">Difficulty:</label>
+                        <select id="match-difficulty">
+                            <option value="easy">Easy (1-5 times tables)</option>
+                            <option value="medium">Medium (1-10 times tables)</option>
+                            <option value="hard">Hard (1-12 times tables)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="match-pairs">Number of Pairs:</label>
+                        <select id="match-pairs">
+                            <option value="6">6 Pairs (Easier)</option>
+                            <option value="8" selected>8 Pairs (Standard)</option>
+                            <option value="12">12 Pairs (Harder)</option>
+                        </select>
+                    </div>
+                    <button id="start-match" class="btn btn-large">Start Matching</button>
+                </div>
+                
+                <div id="match-game-container" class="game-container">
+                    <!-- Match game will be rendered here by JavaScript -->
+                </div>
             </div>
         </section>
+        
+        <!-- Math Bingo Game -->
+        <section id="math-bingo" class="game-section">
+            <div class="container">
+                <h2><i class="fas fa-th"></i> Math Bingo</h2>
+                <p>Mark off answers on your bingo card as multiplication facts are called!</p>
+                
+                <div class="game-settings">
+                    <h3>Game Settings</h3>
+                    <div class="setting-group">
+                        <label for="bingo-difficulty">Difficulty:</label>
+                        <select id="bingo-difficulty">
+                            <option value="easy">Easy (1-5 times tables)</option>
+                            <option value="medium">Medium (1-10 times tables)</option>
+                            <option value="hard">Hard (1-12 times tables)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="bingo-size">Board Size:</label>
+                        <select id="bingo-size">
+                            <option value="3">3×3 (Easy)</option>
+                            <option value="4" selected>4×4 (Standard)</option>
+                            <option value="5">5×5 (Challenge)</option>
+                        </select>
+                    </div>
+                    <button id="start-bingo" class="btn btn-large">Start Bingo</button>
+                </div>
+                
+                <div id="bingo-game-container" class="game-container">
+                    <!-- Bingo game will be rendered here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Game modals for fullscreen gameplay -->
+        <div id="game-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-game-container"></div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -89,7 +189,16 @@
         </div>
     </footer>
 
+    <!-- Audio elements for game sounds -->
+    <audio id="correct-sound" src="audio/correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="audio/incorrect.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="audio/game-win.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="audio/click.mp3" preload="auto"></audio>
+
     <script src="js/main.js"></script>
-    <script src="js/math-game.js"></script>
+    <script src="js/game-utils.js"></script>
+    <script src="js/quiz-game.js"></script>
+    <script src="js/matching-game.js"></script>
+    <script src="js/bingo-game.js"></script>
 </body>
 </html>

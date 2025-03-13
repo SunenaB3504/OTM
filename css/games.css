@@ -1,0 +1,456 @@
+/* 
+ * Math Fun - Games Styles
+ * Dedicated styles for interactive math games
+ */
+
+/* --- Common Game Styles --- */
+.game-settings {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-settings h3 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.setting-group {
+    margin-bottom: 15px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.setting-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--med-gray);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.game-settings .btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.game-container {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px 0;
+    min-height: 300px;
+    position: relative;
+}
+
+/* Modal for fullscreen gameplay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    min-height: 70vh;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--dark-gray);
+    z-index: 1010;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+/* Game UI Elements */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.game-score {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.game-timer {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.game-progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--med-gray);
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.game-options {
+    margin-top: 10px;
+}
+
+.game-message {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-align: center;
+}
+
+.game-correct {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+}
+
+.game-incorrect {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+}
+
+/* --- Math Quiz Game Styles --- */
+.quiz-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.quiz-question {
+    font-size: 2rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-option {
+    background-color: white;
+    padding: 15px 10px;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.quiz-option.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.quiz-option.correct {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #2e7d32;
+}
+
+.quiz-option.incorrect {
+    background-color: #F44336;
+    color: white;
+    border-color: #c62828;
+}
+
+/* --- Matching Game Styles --- */
+.matching-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 25px auto;
+    max-width: 800px;
+}
+
+.matching-card {
+    aspect-ratio: 3/4;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.matching-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.matching-card.flipped .matching-card-inner {
+    transform: rotateY(180deg);
+}
+
+.matching-card-front, .matching-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.matching-card-front {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 2rem;
+}
+
+.matching-card-back {
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    transform: rotateY(180deg);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.matching-card.matched .matching-card-back {
+    background-color: rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+}
+
+/* --- Bingo Game Styles --- */
+.bingo-board-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.bingo-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bingo-call {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 10px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    min-width: 150px;
+}
+
+.bingo-board {
+    display: grid;
+    gap: 10px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.bingo-cell {
+    aspect-ratio: 1;
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bingo-cell:hover {
+    background-color: var(--accent-color);
+}
+
+.bingo-cell.marked {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bingo-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.bingo-win {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(76, 175, 80, 0.2);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    animation: pulse 1s infinite;
+}
+
+.bingo-win h3 {
+    font-size: 2rem;
+    color: #2e7d32;
+}
+
+/* Game result screens */
+.game-result {
+    text-align: center;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.game-result h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.game-result p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.stat-item {
+    background-color: var(--light-gray);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    min-width: 150px;
+}
+
+.stat-item h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.game-result .btn {
+    margin-top: 20px;
+}
+
+/* Animation for bingo win */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .quiz-question {
+        font-size: 1.7rem;
+    }
+    
+    .quiz-option {
+        font-size: 1.3rem;
+    }
+    
+    .matching-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .bingo-cell {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .matching-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bingo-cell {
+        font-size: 1.1rem;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.keyboard-navigable:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+[role="button"]:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
