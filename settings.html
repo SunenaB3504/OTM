@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Math Fun</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="progress.html">Progress</a></li>
+                    <li><a href="settings.html" class="active">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2><i class="fas fa-cogs"></i> Settings</h2>
+            </div>
+        </section>
+
+        <section class="settings-panel">
+            <div class="container">
+                <form id="settings-form">
+                    <div class="setting-group">
+                        <h3><i class="fas fa-desktop"></i> Display</h3>
+                        <div class="setting-item">
+                            <label for="font-size"><i class="fas fa-text-height"></i> Font Size</label>
+                            <select id="font-size" name="font-size">
+                                <option value="normal">Normal</option>
+                                <option value="large">Large</option>
+                                <option value="x-large">Extra Large</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="theme"><i class="fas fa-palette"></i> Color Theme</label>
+                            <select id="theme" name="theme">
+                                <option value="default">Default (Colorful)</option>
+                                <option value="high-contrast">High Contrast</option>
+                                <option value="reduced-colors">Reduced Colors</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <h3><i class="fas fa-graduation-cap"></i> Learning Preferences</h3>
+                        <div class="setting-item">
+                            <label for="difficulty"><i class="fas fa-chart-line"></i> Difficulty Level</label>
+                            <select id="difficulty" name="difficulty">
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="setting-item checkbox">
+                            <input type="checkbox" id="audio" name="audio" checked>
+                            <label for="audio"><i class="fas fa-volume-up"></i> Enable Audio Instructions</label>
+                        </div>
+                        <div class="setting-item checkbox">
+                            <input type="checkbox" id="animations" name="animations" checked>
+                            <label for="animations"><i class="fas fa-film"></i> Enable Animations</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn"><i class="fas fa-save"></i> Save Settings</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

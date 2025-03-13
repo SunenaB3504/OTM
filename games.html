@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Math Fun</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="games.html" class="active">Games</a></li>
+                    <li><a href="progress.html">Progress</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Games</h2>
+            </div>
+        </section>
+
+        <section class="games-grid">
+            <div class="container">
+                <div class="game-card">
+                    <h3>Math Race</h3>
+                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_gaming_vpvg.svg" 
+                         data-fallback="images/math-race.png"
+                         alt="Math race game" class="game-image">
+                    <p>Race to the finish line by solving multiplication problems</p>
+                    <a href="#math-race" class="btn">Play Now</a>
+                </div>
+                <div class="game-card">
+                    <h3>Number Match</h3>
+                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_options_re_9vxh.svg" 
+                         data-fallback="images/number-match.png"
+                         alt="Number matching game" class="game-image">
+                    <p>Match the correct answers to division problems</p>
+                    <a href="#number-match" class="btn">Play Now</a>
+                </div>
+                <div class="game-card">
+                    <h3>Math Memory</h3>
+                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_memory_storage_reh0.svg" 
+                         data-fallback="images/memory-game.png"
+                         alt="Math memory game" class="game-image">
+                    <p>Find matching pairs of multiplication facts</p>
+                    <a href="#" class="btn">Play Now</a>
+                </div>
+                <!-- Future expansion: Add more game cards here -->
+            </div>
+        </section>
+        
+        <section id="math-race" class="game-section">
+            <div class="container">
+                <h2><i class="fas fa-flag-checkered"></i> Math Race Game</h2>
+                <p>Answer multiplication questions as quickly as you can!</p>
+                <div id="math-race-game" class="game-container"></div>
+            </div>
+        </section>
+        
+        <section id="number-match" class="game-section">
+            <div class="container">
+                <h2><i class="fas fa-puzzle-piece"></i> Number Match Game</h2>
+                <p>Practice your division skills with this fun matching game.</p>
+                <div id="number-match-game" class="game-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Illustrations by <a href="https://undraw.co/" target="_blank" rel="noopener">unDraw</a> | 
+                Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/math-game.js"></script>
+</body>
+</html>

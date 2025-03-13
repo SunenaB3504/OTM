@@ -1,0 +1,654 @@
+/* 
+Math Fun - Main Stylesheet
+A responsive, accessible design for children with learning disabilities
+*/
+
+/* --- Base styles and typography --- */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #ff6b4a;
+    --accent-color: #ffcc00;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --light-gray: #f5f5f5;
+    --med-gray: #cccccc;
+    --dark-gray: #666666;
+    
+    --font-size-base: 18px;
+    --font-size-large: 20px;
+    --font-size-xlarge: 24px;
+    --border-radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial', sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Text styling and headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover, a:focus {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Container for consistent padding */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: var(--light-gray);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+#main-nav li {
+    margin-left: 20px;
+}
+
+#main-nav a {
+    display: block;
+    font-size: 1.1rem;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+}
+
+#main-nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#menu-toggle {
+    display: none;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.btn:hover, .btn:focus {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    color: white;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+}
+
+/* --- Hero section --- */
+.hero {
+    background-color: var(--accent-color);
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* --- Features section --- */
+.features .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.feature-card {
+    flex: 1 1 300px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    max-width: 350px;
+}
+
+.feature-card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* --- Lesson and Game grids --- */
+.lesson-grid, .games-grid {
+    padding: 20px 0 40px;
+}
+
+.lesson-grid .container, .games-grid .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.lesson-card, .game-card {
+    flex: 1 1 300px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    max-width: 350px;
+}
+
+.lesson-card img, .game-card img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: var(--border-radius);
+}
+
+/* --- Progress Dashboard --- */
+.progress-dashboard {
+    padding: 20px 0 40px;
+}
+
+.progress-summary {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--med-gray);
+    height: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.achievement-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.achievement-card {
+    flex: 1 1 200px;
+    max-width: 250px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.achievement-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.achievement-card.locked {
+    opacity: 0.7;
+}
+
+/* --- Settings --- */
+.settings-panel {
+    padding: 20px 0 40px;
+}
+
+.setting-group {
+    margin-bottom: 30px;
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.setting-item {
+    margin-bottom: 15px;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.setting-item select {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--med-gray);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.setting-item.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.setting-item.checkbox input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* --- Page Headers --- */
+.page-header {
+    background-color: var(--accent-color);
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+    }
+    
+    #nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--light-gray);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: none;
+        z-index: 100;
+    }
+    
+    #nav-menu.active {
+        display: flex;
+    }
+    
+    #main-nav li {
+        margin: 0;
+        width: 100%;
+    }
+    
+    #main-nav a {
+        padding: 15px 20px;
+        border-radius: 0;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 16px;
+        --font-size-large: 18px;
+        --font-size-xlarge: 22px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-large {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .feature-card, .lesson-card, .game-card, .achievement-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* --- Accessibility Enhancements --- */
+/* Focus styles for keyboard navigation */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High contrast theme classes - to be toggled via JS */
+body.high-contrast {
+    --primary-color: #0000ff;
+    --secondary-color: #ff0000;
+    --accent-color: #ffff00;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --light-gray: #f0f0f0;
+    --med-gray: #aaaaaa;
+    --dark-gray: #444444;
+}
+
+/* Large font theme classes */
+body.large-font {
+    font-size: var(--font-size-large);
+}
+
+body.x-large-font {
+    font-size: var(--font-size-xlarge);
+}
+
+/* --- Game Components --- */
+.game-section {
+    padding: 40px 0;
+    border-top: 2px dashed var(--med-gray);
+    margin-top: 20px;
+}
+
+.game-container {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px 0;
+    min-height: 300px;
+}
+
+.game-ui {
+    text-align: center;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.question-container {
+    margin: 20px 0;
+}
+
+.question-container h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.answer-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.answer-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.4rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-width: 80px;
+}
+
+.answer-btn:hover:not(:disabled) {
+    background-color: var(--secondary-color);
+}
+
+.answer-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.answer-btn.correct-answer {
+    background-color: #4CAF50;
+}
+
+.answer-btn.wrong-answer {
+    background-color: #F44336;
+}
+
+.feedback {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 50px;
+}
+
+.feedback.correct {
+    color: #4CAF50;
+}
+
+.feedback.incorrect {
+    color: #F44336;
+}
+
+.game-over {
+    text-align: center;
+    padding: 20px;
+}
+
+.game-over h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.game-over p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Custom animations for game interactions */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.answer-btn.correct-answer {
+    animation: pulse 0.5s;
+}
+
+/* No animations class for accessibility */
+body.no-animations * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* --- Icon styling --- */
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Standardize image sizes for lessons and games */
+.lesson-image, .game-image {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin: 15px 0;
+    /* Ensure consistent file size display */
+    background-color: var(--light-gray);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+/* Standardize achievement icons */
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--med-gray);
+    display: block;
+}
+
+.achievement-icon.completed {
+    color: var(--accent-color);
+}
+
+/* For PNG achievement badges that may be used instead of Font Awesome */
+.achievement-badge {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Standardize all other PNG icons */
+.icon-standard {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.icon-small {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.icon-large {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+}
+
+/* Logo sizing */
+.site-logo {
+    height: 60px;
+    width: auto;
+}
+
+.activity-timeline {
+    margin-top: 20px;
+}
+
+.activity-item {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--med-gray);
+}
+
+.activity-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.activity-content h4 {
+    margin-bottom: 5px;
+}
+
+.activity-content p {
+    margin-bottom: 0;
+    color: var(--dark-gray);
+}
+
+.attribution {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.recent-activity {
+    padding: 20px 0 40px;
+}
+
+/* Add a little spacing for icons in form fields */
+.setting-item label i, button i {
+    margin-right: 8px;
+}
+
+/* Future expansion: Add more theme options and accessibility features */
