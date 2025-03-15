@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Tables - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Learn and practice multiplication tables with interactive flash cards and games">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Specific styles for times tables lesson */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .concept-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #e67e22;
+            background-color: #fef5e7;
+        }
+        
+        .example {
+            background-color: #fdf2e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .interactive-area {
+            border: 2px dashed #d35400;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .flash-card {
+            width: 200px;
+            height: 300px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .flash-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flash-card.flipped .flash-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flash-card-front, .flash-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 1px solid #d35400;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .flash-card-front {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .flash-card-back {
+            background-color: #e67e22;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .flash-card-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .flash-card-controls button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .flash-card-controls button:hover {
+            background-color: #d35400;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .progress-fill {
+            height: 20px;
+            background-color: #e67e22;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="../lessons.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Lessons</a>
+            </div>
+            
+            <h1>Times Tables</h1>
+            <h2>Learn and Practice Multiplication Tables</h2>
+            
+            <div class="concept-section">
+                <h3>1. Understanding Times Tables</h3>
+                <p>Times tables help us quickly find the result of multiplying two numbers. They are essential for solving math problems faster.</p>
+                
+                <div class="example">
+                    <h4>Example</h4>
+                    <p>To find 3 × 4, we can use the times table to see that 3 × 4 = 12.</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>2. Practice with Flash Cards</h3>
+                <p>Use the flash cards below to practice your times tables. Click on the card to see the answer, and use the buttons to navigate through the cards.</p>
+                
+                <div class="interactive-area">
+                    <div class="flash-card" id="flash-card">
+                        <div class="flash-card-inner">
+                            <div class="flash-card-front">
+                                <div class="flash-question">2 × 7 = ?</div>
+                            </div>
+                            <div class="flash-card-back">
+                                <div class="flash-answer">14</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flash-card-controls">
+                        <button id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button id="flip-card">Flip</button>
+                        <button id="next-card">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div id="card-progress">1/10</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>3. Real-Life Examples</h3>
+                
+                <div class="example">
+                    <h4>Example 1: Buying Apples</h4>
+                    <p>If each bag has 5 apples and you buy 4 bags, how many apples do you have in total?</p>
+                    <div class="equation">4 × 5 = 20 apples</div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 2: Counting Wheels</h4>
+                    <p>If each car has 4 wheels and there are 6 cars, how many wheels are there in total?</p>
+                    <div class="equation">6 × 4 = 24 wheels</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>4. Quizzes and Games</h3>
+                
+                <div class="interactive-area">
+                    <h4>Match the Facts</h4>
+                    <p>For each multiplication fact, write the corresponding division facts:</p>
+                    
+                    <div class="example">
+                        <p>7 × 6 = 42</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>42 ÷ 7 = 6 and 42 ÷ 6 = 7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <p>5 × 9 = 45</p>
+                        <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                        <div style="display: none;">
+                            <p>45 ÷ 5 = 9 and 45 ÷ 9 = 5</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Fact Family Challenge</h4>
+                    <p>Complete the fact family for numbers 8, 7, and 56:</p>
+                    <button onclick="this.nextElementSibling.style.display='block';" class="btn">Show Answer</button>
+                    <div style="display: none;">
+                        <table class="fact-table">
+                            <tr>
+                                <td>8 × 7 = 56</td>
+                                <td>56 ÷ 8 = 7</td>
+                            </tr>
+                            <tr>
+                                <td>7 × 8 = 56</td>
+                                <td>56 ÷ 7 = 8</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="next-lesson">
+                <p>Ready to practice what you've learned?</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <a href="times-tables-worksheet.html" class="btn btn-large">Try Practice Problems <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Times table interaction
+            // ...existing code...
+            
+            // Flash card functionality
+            const flashCard = document.getElementById('flash-card');
+            const flipButton = document.getElementById('flip-card');
+            const nextButton = document.getElementById('next-card');
+            const prevButton = document.getElementById('prev-card');
+            const cardProgress = document.getElementById('card-progress');
+            const progressFill = document.querySelector('.progress-fill');
+            
+            let currentCardIndex = 0;
+            const flashCards = [
+                { question: "2 × 7 = ?", answer: "14" },
+                { question: "3 × 6 = ?", answer: "18" },
+                { question: "4 × 4 = ?", answer: "16" },
+                { question: "5 × 9 = ?", answer: "45" },
+                { question: "6 × 8 = ?", answer: "48" },
+                { question: "7 × 7 = ?", answer: "49" },
+                { question: "8 × 9 = ?", answer: "72" },
+                { question: "9 × 6 = ?", answer: "54" },
+                { question: "10 × 5 = ?", answer: "50" },
+                { question: "3 × 9 = ?", answer: "27" }
+            ];
+            
+            function updateCard() {
+                const card = flashCards[currentCardIndex];
+                document.querySelector('.flash-question').textContent = card.question;
+                document.querySelector('.flash-answer').textContent = card.answer;
+                cardProgress.textContent = `${currentCardIndex + 1}/${flashCards.length}`;
+                progressFill.style.width = `${(currentCardIndex + 1) / flashCards.length * 100}%`;
+                
+                // Reset card to question side
+                flashCard.classList.remove('flipped');
+            }
+            
+            flipButton.addEventListener('click', function() {
+                flashCard.classList.toggle('flipped');
+            });
+            
+            flashCard.addEventListener('click', function() {
+                flashCard.classList.toggle('flipped');
+            });
+            
+            nextButton.addEventListener('click', function() {
+                currentCardIndex = (currentCardIndex + 1) % flashCards.length;
+                updateCard();
+            });
+            
+            prevButton.addEventListener('click', function() {
+                currentCardIndex = (currentCardIndex - 1 + flashCards.length) % flashCards.length;
+                updateCard();
+            });
+            
+            // Initialize with first card
+            updateCard();
+        });
+    </script>
+</body>
+</html>

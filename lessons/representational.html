@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representational Learning - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Learn multiplication and division using visual models and drawings">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Specific styles for representational learning */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .concept-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #16a085;
+            background-color: #e8f8f5;
+        }
+        
+        .example {
+            background-color: #d1f2eb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .interactive-area {
+            border: 2px dashed #1abc9c;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .representation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 10px;
+        }
+        
+        .array-grid {
+            display: grid;
+            gap: 5px;
+            margin: 10px auto;
+        }
+        
+        .array-cell {
+            width: 40px;
+            height: 40px;
+            background-color: #1abc9c;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .number-line {
+            height: 5px;
+            background-color: #34495e;
+            position: relative;
+            margin: 40px 0;
+            width: 100%;
+        }
+        
+        .number-mark {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: #34495e;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+        
+        .number-label {
+            position: absolute;
+            bottom: -25px;
+            transform: translateX(-50%);
+        }
+        
+        .jump {
+            position: absolute;
+            height: 30px;
+            border: 2px solid #e74c3c;
+            border-top: none;
+            bottom: 5px;
+        }
+        
+        .area-model {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        
+        .area-row {
+            display: flex;
+        }
+        
+        .area-cell {
+            border: 1px solid #16a085;
+            padding: 20px;
+            text-align: center;
+            min-width: 60px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .division-model {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .division-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 300px;
+            gap: 5px;
+        }
+        
+        .division-item {
+            width: 30px;
+            height: 30px;
+            background-color: #1abc9c;
+            border-radius: 5px;
+            margin: 2px;
+        }
+        
+        .division-group {
+            border: 2px dashed #16a085;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .toggle-button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        .toggle-button:hover {
+            background-color: #16a085;
+        }
+        
+        .equation {
+            font-size: 24px;
+            margin: 15px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="../lessons.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Lessons</a>
+            </div>
+            
+            <h1>Representational Learning</h1>
+            <h2>Using Pictures and Visual Models to Understand Math</h2>
+            
+            <div class="concept-section">
+                <h3>What is Representational Learning?</h3>
+                <p>Representational learning is the second step in learning math, where we use pictures and drawings to represent math problems. These visual models help us bridge the gap between using physical objects and using just numbers and symbols.</p>
+                
+                <div class="example">
+                    <h4>The C-R-A Approach</h4>
+                    <p><strong>C</strong>oncrete → <strong>R</strong>epresentational → <strong>A</strong>bstract</p>
+                    <p>Now that we've worked with real objects (concrete), we're ready to use drawings and diagrams (representational) before moving to numbers and symbols (abstract).</p>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Arrays: Visualizing Multiplication</h3>
+                <p>An array is a powerful way to represent multiplication. It shows objects arranged in rows and columns.</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 4 × 3 Array</h4>
+                    
+                    <div class="representation">
+                        <div class="array-grid" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr);">
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                            <div class="array-cell">●</div>
+                        </div>
+                    </div>
+                    
+                    <p>This array has 4 rows and 3 columns.</p>
+                    <div class="equation">4 × 3 = 12</div>
+                    <p>We can also see it as 3 columns with 4 dots in each column.</p>
+                    <div class="equation">3 × 4 = 12</div>
+                    
+                    <button class="toggle-button" id="toggle-array">Show 3 × 5 Array</button>
+                    
+                    <div id="new-array-container" style="display: none;">
+                        <div class="representation">
+                            <div class="array-grid" style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, 1fr);">
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                                <div class="array-cell">●</div>
+                            </div>
+                        </div>
+                        
+                        <div class="equation">3 × 5 = 15</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Equal Groups: Another Way to See Multiplication</h3>
+                <p>We can also represent multiplication as equal groups of items.</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 3 groups of 4</h4>
+                    
+                    <div class="representation">
+                        <div class="division-group">
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                        </div>
+                        <div class="division-group">
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                        </div>
+                        <div class="division-group">
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">3 groups × 4 items = 12 total items</div>
+                    <div class="equation">3 × 4 = 12</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Number Lines: Showing Repeated Addition</h3>
+                <p>A number line can help us visualize multiplication as repeated addition or repeated jumps.</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 4 × 3 on a number line</h4>
+                    
+                    <div style="position: relative; margin: 50px 20px;">
+                        <div class="number-line">
+                            <div class="number-mark" style="left: 0%;">
+                                <div class="number-label">0</div>
+                            </div>
+                            <div class="number-mark" style="left: 25%;">
+                                <div class="number-label">3</div>
+                            </div>
+                            <div class="number-mark" style="left: 50%;">
+                                <div class="number-label">6</div>
+                            </div>
+                            <div class="number-mark" style="left: 75%;">
+                                <div class="number-label">9</div>
+                            </div>
+                            <div class="number-mark" style="left: 100%;">
+                                <div class="number-label">12</div>
+                            </div>
+                            
+                            <div class="jump" style="left: 0%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+3</div>
+                            </div>
+                            <div class="jump" style="left: 25%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+3</div>
+                            </div>
+                            <div class="jump" style="left: 50%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+3</div>
+                            </div>
+                            <div class="jump" style="left: 75%; width: 25%;">
+                                <div style="text-align: center; margin-top: -25px;">+3</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>We make 4 jumps of size 3 to get from 0 to 12.</p>
+                    <div class="equation">4 × 3 = 3 + 3 + 3 + 3 = 12</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Area Models: Visualizing Larger Multiplication</h3>
+                <p>Area models help us visualize multiplication as covering a rectangular area.</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 4 × 3 Area Model</h4>
+                    
+                    <div class="representation">
+                        <div class="area-model">
+                            <div class="area-row">
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                                <div class="area-cell">●</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equation">4 rows × 3 columns = 12 total squares</div>
+                    <div class="equation">4 × 3 = 12</div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Sharing: Visualizing Division</h3>
+                <p>Division can be represented as sharing items equally among groups.</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 12 ÷ 3 (sharing 12 items into 3 groups)</h4>
+                    
+                    <div class="representation">
+                        <div class="division-container" id="division-container">
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                        </div>
+                    </div>
+                    
+                    <button class="toggle-button" id="share-items">Share Into 3 Groups</button>
+                    
+                    <div id="shared-groups" style="display: none;">
+                        <div class="representation">
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                        </div>
+                        
+                        <p>When we share 12 items equally into 3 groups, each group gets 4 items.</p>
+                        <div class="equation">12 ÷ 3 = 4</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Measurement Division: How Many Groups?</h3>
+                <p>Another way to think about division is to ask how many equal-sized groups can we make?</p>
+                
+                <div class="interactive-area">
+                    <h4>Example: 15 ÷ 5 (how many groups of 5 can we make from 15?)</h4>
+                    
+                    <div class="representation">
+                        <div class="division-container" id="measurement-container">
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                            <div class="division-item">●</div>
+                        </div>
+                    </div>
+                    
+                    <button class="toggle-button" id="group-items">Make Groups of 5</button>
+                    
+                    <div id="measured-groups" style="display: none;">
+                        <div class="representation">
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                            <div class="division-group">
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                                <div class="division-item">●</div>
+                            </div>
+                        </div>
+                        
+                        <p>From 15 items, we can make 3 groups with 5 items in each group.</p>
+                        <div class="equation">15 ÷ 5 = 3</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concept-section">
+                <h3>Activities to Try</h3>
+                
+                <div class="example">
+                    <h4>Draw an Array</h4>
+                    <p>Try drawing arrays for these multiplication facts:</p>
+                    <ul>
+                        <li>2 × 6 = 12</li>
+                        <li>3 × 3 = 9</li>
+                        <li>5 × 4 = 20</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <h4>Sharing Drawings</h4>
+                    <p>Draw pictures to show how to solve these division problems:</p>
+                    <ul>
+                        <li>8 ÷ 2 = ?</li>
+                        <li>15 ÷ 3 = ?</li>
+                        <li>20 ÷ 4 = ?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="next-lesson">
+                <p>Ready to move to the next learning step?</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <a href="abstract.html" class="btn btn-large">Try Abstract Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle array button
+            document.getElementById('toggle-array').addEventListener('click', function() {
+                const arrayContainer = document.getElementById('new-array-container');
+                if (arrayContainer.style.display === 'none') {
+                    arrayContainer.style.display = 'block';
+                    this.textContent = 'Hide 3 × 5 Array';
+                } else {
+                    arrayContainer.style.display = 'none';
+                    this.textContent = 'Show 3 × 5 Array';
+                }
+            });
+            
+            // Share items button
+            document.getElementById('share-items').addEventListener('click', function() {
+                const container = document.getElementById('division-container');
+                const sharedGroups = document.getElementById('shared-groups');
+                
+                if (sharedGroups.style.display === 'none') {
+                    container.style.display = 'none';
+                    sharedGroups.style.display = 'block';
+                    this.textContent = 'Show Original Items';
+                } else {
+                    container.style.display = 'flex';
+                    sharedGroups.style.display = 'none';
+                    this.textContent = 'Share Into 3 Groups';
+                }
+            });
+            
+            // Group items button
+            document.getElementById('group-items').addEventListener('click', function() {
+                const container = document.getElementById('measurement-container');
+                const measuredGroups = document.getElementById('measured-groups');
+                
+                if (measuredGroups.style.display === 'none') {
+                    container.style.display = 'none';
+                    measuredGroups.style.display = 'block';
+                    this.textContent = 'Show Original Items';
+                } else {
+                    container.style.display = 'flex';
+                    measuredGroups.style.display = 'none';
+                    this.textContent = 'Make Groups of 5';
+                }
+            });
+            
+            // Interactive elements
+            const items = document.querySelectorAll('.division-item, .array-cell');
+            items.forEach(item => {
+                item.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.2)';
+                });
+                item.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

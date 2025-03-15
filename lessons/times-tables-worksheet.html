@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Tables Worksheet - Math Fun</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add additional meta tags for accessibility -->
+    <meta name="description" content="Practice multiplication tables with printable worksheets">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Math Fun">
+    
+    <!-- PWA manifest and icons -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    
+    <style>
+        /* Worksheet specific styles */
+        .worksheet-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .problem-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .problem {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px dashed #e67e22;
+            width: 120px;
+        }
+        
+        .wide-problem {
+            width: 80%;
+        }
+        
+        .equation {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .answer-box {
+            border: 1px solid #000;
+            width: 40px;
+            height: 30px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .times-table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        
+        .times-table th, .times-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .times-table th {
+            background-color: #e67e22;
+            color: white;
+        }
+        
+        .times-table td.fill-in {
+            background-color: #fef5e7;
+        }
+        
+        .matching-exercise {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .matching-item {
+            border: 1px solid #e67e22;
+            border-radius: 5px;
+            padding: 10px;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .answers-section {
+            margin-top: 40px;
+            border-top: 2px dashed #999;
+            padding-top: 20px;
+            page-break-before: always;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Add logo with consistent sizing -->
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html" class="active">Lessons</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div style="margin: 20px 0">
+                <a href="times-tables.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Times Tables</a>
+            </div>
+            
+            <h1>Times Tables Practice Worksheet</h1>
+            <p>Practice your multiplication tables with these exercises!</p>
+            
+            <button class="btn no-print" onclick="window.print()"><i class="fas fa-print"></i> Print Worksheet</button>
+            
+            <div class="worksheet-section">
+                <h2>Complete the Times Table</h2>
+                <p>Fill in the missing values in this multiplication table:</p>
+                
+                <table class="times-table">
+                    <tr>
+                        <th>×</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>2</td>
+                        <td>4</td>
+                        <td class="fill-in"></td>
+                        <td>8</td>
+                        <td class="fill-in"></td>
+                        <td>12</td>
+                        <td class="fill-in"></td>
+                        <td>16</td>
+                        <td class="fill-in"></td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>5</td>
+                        <td class="fill-in"></td>
+                        <td>15</td>
+                        <td class="fill-in"></td>
+                        <td>25</td>
+                        <td class="fill-in"></td>
+                        <td>35</td>
+                        <td class="fill-in"></td>
+                        <td>45</td>
+                        <td class="fill-in"></td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td class="fill-in"></td>
+                        <td>18</td>
+                        <td class="fill-in"></td>
+                        <td>36</td>
+                        <td class="fill-in"></td>
+                        <td>54</td>
+                        <td class="fill-in"></td>
+                        <td>72</td>
+                        <td class="fill-in"></td>
+                        <td>90</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Fill in the Blanks</h2>
+                <p>Complete the multiplication equations:</p>
+                
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">3 × 7 = _____</div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">6 × _____ = 42</div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">_____ × 8 = 56</div>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem">
+                        <div class="equation">9 × 4 = _____</div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">5 × _____ = 35</div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="equation">_____ × 10 = 70</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Find the Pattern</h2>
+                <p>Look at each pattern and fill in the missing numbers:</p>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>3 times table pattern:</p>
+                        <div class="equation">3, 6, 9, _____, 15, 18, _____, 24, 27, _____</div>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>4 times table pattern:</p>
+                        <div class="equation">4, 8, _____, 16, 20, _____, 28, _____, 36, 40</div>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>Find the rule and complete:</p>
+                        <div class="equation">5, 10, 20, 40, _____, _____, 320</div>
+                        <p>Rule: _____________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Matching Exercise</h2>
+                <p>Draw lines to match each multiplication question with its answer:</p>
+                
+                <div class="matching-exercise">
+                    <div class="matching-item">7 × 6</div>
+                    <div class="matching-item">36</div>
+                    <div class="matching-item">8 × 4</div>
+                    <div class="matching-item">42</div>
+                    <div class="matching-item">6 × 6</div>
+                    <div class="matching-item">32</div>
+                    <div class="matching-item">9 × 5</div>
+                    <div class="matching-item">45</div>
+                    <div class="matching-item">3 × 9</div>
+                    <div class="matching-item">27</div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Word Problems</h2>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>1. There are 6 rows of chairs in the classroom, with 8 chairs in each row. How many chairs are there in total?</p>
+                        <p>Equation: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>2. Emma has 7 bags with 9 marbles in each bag. How many marbles does she have altogether?</p>
+                        <p>Equation: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>3. A bookshelf has 4 shelves. Each shelf holds 10 books. How many books can fit on the bookshelf?</p>
+                        <p>Equation: _____________________</p>
+                        <p>Answer: _____________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="worksheet-section">
+                <h2>Create Your Own Times Tables Problems</h2>
+                <p>Write 3 multiplication problems using the 6 times table:</p>
+                
+                <div class="problem-row">
+                    <div class="problem wide-problem">
+                        <p>1. _____________________</p>
+                        <p>2. _____________________</p>
+                        <p>3. _____________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="answers-section">
+                <h2 class="no-print">Answer Key</h2>
+                <div class="no-print">
+                    <p><strong>Complete the Times Table:</strong></p>
+                    <ul>
+                        <li>2 times table: 6, 10, 14, 18</li>
+                        <li>5 times table: 10, 20, 30, 40, 50</li>
+                        <li>9 times table: 9, 27, 45, 63, 81</li>
+                    </ul>
+                    
+                    <p><strong>Fill in the Blanks:</strong></p>
+                    <ul>
+                        <li>3 × 7 = 21</li>
+                        <li>6 × 7 = 42</li>
+                        <li>7 × 8 = 56</li>
+                        <li>9 × 4 = 36</li>
+                        <li>5 × 7 = 35</li>
+                        <li>7 × 10 = 70</li>
+                    </ul>
+                    
+                    <p><strong>Find the Pattern:</strong></p>
+                    <ul>
+                        <li>3 times table: 3, 6, 9, <strong>12</strong>, 15, 18, <strong>21</strong>, 24, 27, <strong>30</strong></li>
+                        <li>4 times table: 4, 8, <strong>12</strong>, 16, 20, <strong>24</strong>, 28, <strong>32</strong>, 36, 40</li>
+                        <li>Pattern: 5, 10, 20, 40, <strong>80</strong>, <strong>160</strong>, 320 (Rule: multiply by 2 each time)</li>
+                    </ul>
+                    
+                    <p><strong>Matching Exercise:</strong></p>
+                    <ul>
+                        <li>7 × 6 = 42</li>
+                        <li>8 × 4 = 32</li>
+                        <li>6 × 6 = 36</li>
+                        <li>9 × 5 = 45</li>
+                        <li>3 × 9 = 27</li>
+                    </ul>
+                    
+                    <p><strong>Word Problems:</strong></p>
+                    <ul>
+                        <li>1. 6 × 8 = 48 chairs</li>
+                        <li>2. 7 × 9 = 63 marbles</li>
+                        <li>3. 4 × 10 = 40 books</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="no-print" style="margin: 30px 0; text-align: center;">
+                <a href="times-tables.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Times Tables</a>
+                <a href="../lessons.html" class="btn">All Lessons <i class="fas fa-th-list"></i></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+            <div class="attribution">
+                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Install button for PWA (hidden by default) -->
+    <div id="install-button" style="display: none;" class="install-banner">
+        <div>
+            <h3>Install Math Fun</h3>
+            <p>Add this app to your home screen for quick access</p>
+        </div>
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pwa.js"></script>
+</body>
+</html>
