@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table of 12</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html">Home</a>
+    <h1>Multiplication Table of 12</h1>
+    <div id="tableDisplay"></div>
+    <div id="quiz">
+        <h2>Quiz Time!</h2>
+        <p id="problem"></p>
+        <label for="userAnswer">Your Answer:</label>
+        <input type="number" id="userAnswer">
+        <button id="checkButton">Check Answer</button>
+        <button id="nextButton">Next Problem</button>
+        <p id="feedback" aria-live="polite"></p>
+        <p id="score">Score: 0</p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        var tableNumber = 12;
+        generateTable(tableNumber);
+        generateProblem(tableNumber);
+    </script>
+</body>
+</html>
