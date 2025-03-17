@@ -7,6 +7,43 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .lesson-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 15px;
+        }
+        
+        .lesson-section-header {
+            width: 100%;
+            margin: 30px 0 20px;
+            padding: 15px 20px;
+            background-color: #f5f8ff;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .lesson-section-header h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .cra-method-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .cra-method-container .lesson-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -36,7 +73,7 @@
             <div class="container">
                 <div class="lesson-card">
                     <h3>Multiplication Basics</h3>
-                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_mathematics_4otb.svg" 
+                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_calculator_0evy.svg" 
                          data-fallback="images/multiplication.png" 
                          alt="Multiplication visual" class="lesson-image">
                     <p>Learn what multiplication means with fun examples</p>
@@ -64,29 +101,31 @@
                     <p>Explore mathematics from concrete objects to abstract symbols!</p>
                 </div>
                 
-                <div class="lesson-card">
-                    <h3>Concrete Learning</h3>
-                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_building_blocks_re_5ahy.svg" 
-                         data-fallback="images/concrete-learning.png" 
-                         alt="Blocks and manipulatives" class="lesson-image">
-                    <p>Use virtual blocks to understand multiplication and division</p>
-                    <a href="lessons/concrete.html" class="btn">Explore</a>
-                </div>
-                <div class="lesson-card">
-                    <h3>Representational Learning</h3>
-                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_spread_love_r9jb.svg" 
-                         data-fallback="images/representational-learning.png"
-                         alt="Visual models and drawings" class="lesson-image">
-                    <p>Use diagrams and images to visualize math concepts</p>
-                    <a href="lessons/representational.html" class="btn">Explore</a>
-                </div>
-                <div class="lesson-card">
-                    <h3>Abstract Learning</h3>
-                    <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_mathematics_4otb.svg" 
-                         data-fallback="images/abstract-learning.png"
-                         alt="Math equations and symbols" class="lesson-image">
-                    <p>Practice with numbers and equations</p>
-                    <a href="lessons/abstract.html" class="btn">Explore</a>
+                <div class="cra-method-container">
+                    <div class="lesson-card">
+                        <h3>Concrete Learning</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_building_blocks_re_5ahy.svg" 
+                             data-fallback="images/concrete-learning.png" 
+                             alt="Blocks and manipulatives" class="lesson-image">
+                        <p>Use virtual blocks to understand multiplication and division</p>
+                        <a href="lessons/concrete.html" class="btn">Explore</a>
+                    </div>
+                    <div class="lesson-card">
+                        <h3>Representational Learning</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_spread_love_r9jb.svg" 
+                             data-fallback="images/representational-learning.png"
+                             alt="Visual models and drawings" class="lesson-image">
+                        <p>Use diagrams and images to visualize math concepts</p>
+                        <a href="lessons/representational.html" class="btn">Explore</a>
+                    </div>
+                    <div class="lesson-card">
+                        <h3>Abstract Learning</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets/blk-design-system-react/undraw_mathematics_4otb.svg" 
+                             data-fallback="images/abstract-learning.png"
+                             alt="Math equations and symbols" class="lesson-image">
+                        <p>Practice with numbers and equations</p>
+                        <a href="lessons/abstract.html" class="btn">Explore</a>
+                    </div>
                 </div>
             </div>
         </section>

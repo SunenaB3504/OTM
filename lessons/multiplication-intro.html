@@ -303,6 +303,11 @@
             outline: none;
             box-shadow: 0 0 5px rgba(116, 185, 255, 0.5);
         }
+
+        /* Hide the Objects You Can Use section */
+        .objects-examples {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -402,7 +407,7 @@
                     </div>
                 </div>
                 
-                <div class="example">
+                <div class="example objects-examples">
                     <h4>Objects You Can Use:</h4>
                     <ul>
                         <li><strong>Building blocks</strong> - Stack them in equal groups</li>
@@ -1727,11 +1732,25 @@
         // Check if the arrangement is correct
         function checkAnswer() {
             const dropZones = document.querySelectorAll('.drop-zone');
-            let correct = true;
+            const totalObjectsInZones = Array.from(dropZones).reduce((total, zone) => {
+                // Count only the draggable objects (not the label)
+                return total + zone.querySelectorAll('.draggable-object').length;
+            }, 0);
+            
+            // Check if all objects are in drop zones
+            const totalExpectedObjects = firstNumber * secondNumber;
+            if (totalObjectsInZones !== totalExpectedObjects) {
+                gameMessage.style.display = 'block';
+                gameMessage.textContent = 'Make sure all blocks are placed in the groups!';
+                gameMessage.className = 'game-message';
+                return;
+            }
             
             // Check if each drop zone has exactly secondNumber objects
+            let correct = true;
             dropZones.forEach(zone => {
-                if (zone.children.length - 1 !== secondNumber) { // -1 because of the label
+                const objectCount = zone.querySelectorAll('.draggable-object').length;
+                if (objectCount !== secondNumber) {
                     correct = false;
                 }
             });

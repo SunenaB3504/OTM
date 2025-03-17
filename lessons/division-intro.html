@@ -164,6 +164,280 @@
                         <div class="equation">12 ÷ 4 = 3 layers</div>
                     </div>
                 </div>
+                
+                <!-- New Interactive Game -->
+                <div class="example">
+                    <h4>🎮 Flip and Match Game 🎮</h4>
+                    <p>Match each multiplication fact with its division opposite!</p>
+                    
+                    <div class="interactive-area" style="background-color: #f0e6f6; border: 2px solid #8e44ad;">
+                        <div id="flip-match-game" style="margin: 20px 0;">
+                            <div class="game-status" style="margin-bottom: 15px; font-weight: bold;" id="game-status">
+                                Find the matching pairs!
+                            </div>
+                            
+                            <div id="score-display" style="margin-bottom: 10px;">
+                                <span>Matches: <span id="matches-count">0</span>/6</span>
+                                <span style="margin-left: 20px;">Attempts: <span id="attempts-count">0</span></span>
+                            </div>
+                            
+                            <div id="card-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                                <!-- Cards will be added by JavaScript -->
+                            </div>
+                            
+                            <button id="reset-game" class="btn" style="margin-top: 15px; background-color: #8e44ad;">
+                                Reset Game
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <style>
+                    .flip-card {
+                        width: 100%;
+                        height: 100px;
+                        perspective: 1000px;
+                        cursor: pointer;
+                    }
+                    
+                    .flip-card-inner {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        transition: transform 0.6s;
+                        transform-style: preserve-3d;
+                    }
+                    
+                    .flip-card.flipped .flip-card-inner {
+                        transform: rotateY(180deg);
+                    }
+                    
+                    .flip-card-front, .flip-card-back {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        -webkit-backface-visibility: hidden;
+                        backface-visibility: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    
+                    .flip-card-front {
+                        background-color: #9b59b6;
+                        color: white;
+                    }
+                    
+                    .flip-card-back {
+                        background-color: #8e44ad;
+                        color: white;
+                        transform: rotateY(180deg);
+                    }
+                    
+                    .matched .flip-card-back {
+                        background-color: #27ae60;
+                    }
+                </style>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Game data - pairs of multiplication and division facts
+                        const cardPairs = [
+                            // Start with simple multiples of 2
+                            { mult: "2 × 1 = 2", div: "2 ÷ 2 = 1" },
+                            { mult: "2 × 2 = 4", div: "4 ÷ 2 = 2" },
+                            { mult: "2 × 3 = 6", div: "6 ÷ 2 = 3" },
+                            // Medium difficulty - multiples of 5 and 10
+                            { mult: "5 × 2 = 10", div: "10 ÷ 5 = 2" },
+                            // Slightly more challenging
+                            { mult: "3 × 4 = 12", div: "12 ÷ 3 = 4" },
+                            { mult: "4 × 5 = 20", div: "20 ÷ 4 = 5" }
+                        ];
+                        
+                        // Additional code to enable level progression
+                        let currentLevel = 1;
+                        const maxLevel = 3;
+                        
+                        // Define card pairs for each level
+                        const levelCardPairs = {
+                            1: [
+                                // Level 1: Very easy - multiples of 2
+                                { mult: "2 × 1 = 2", div: "2 ÷ 2 = 1" },
+                                { mult: "2 × 2 = 4", div: "4 ÷ 2 = 2" },
+                                { mult: "2 × 3 = 6", div: "6 ÷ 2 = 3" },
+                                { mult: "2 × 4 = 8", div: "8 ÷ 2 = 4" }
+                            ],
+                            2: [
+                                // Level 2: Easy - multiples of 5 and simple 3's
+                                { mult: "5 × 1 = 5", div: "5 ÷ 5 = 1" },
+                                { mult: "5 × 2 = 10", div: "10 ÷ 5 = 2" },
+                                { mult: "3 × 2 = 6", div: "6 ÷ 3 = 2" },
+                                { mult: "3 × 3 = 9", div: "9 ÷ 3 = 3" }
+                            ],
+                            3: [
+                                // Level 3: Medium - more challenging facts
+                                { mult: "4 × 3 = 12", div: "12 ÷ 4 = 3" },
+                                { mult: "6 × 2 = 12", div: "12 ÷ 6 = 2" },
+                                { mult: "4 × 5 = 20", div: "20 ÷ 4 = 5" },
+                                { mult: "7 × 3 = 21", div: "21 ÷ 7 = 3" }
+                            ]
+                        };
+                        
+                        const cardContainer = document.getElementById('card-container');
+                        const gameStatus = document.getElementById('game-status');
+                        const matchesCount = document.getElementById('matches-count');
+                        const attemptsCount = document.getElementById('attempts-count');
+                        const resetGameBtn = document.getElementById('reset-game');
+                        
+                        // Update the UI to show level information
+                        const updateLevelDisplay = () => {
+                            gameStatus.innerHTML = `Level ${currentLevel} - Find the matching pairs!`;
+                        };
+                        
+                        let flippedCards = [];
+                        let matchedPairs = 0;
+                        let attempts = 0;
+                        
+                        function initGame() {
+                            // Reset game state
+                            flippedCards = [];
+                            matchedPairs = 0;
+                            attempts = 0;
+                            cardContainer.innerHTML = '';
+                            matchesCount.textContent = '0';
+                            attemptsCount.textContent = '0';
+                            
+                            // Update level display
+                            updateLevelDisplay();
+                            
+                            // Get cards for current level
+                            const currentCards = levelCardPairs[currentLevel];
+                            
+                            // Create cards for each fact
+                            const cards = [];
+                            
+                            // Add multiplication cards
+                            currentCards.forEach((pair, index) => {
+                                cards.push({
+                                    id: `mult-${index}`,
+                                    content: pair.mult,
+                                    pairId: index
+                                });
+                            });
+                            
+                            // Add division cards
+                            currentCards.forEach((pair, index) => {
+                                cards.push({
+                                    id: `div-${index}`,
+                                    content: pair.div,
+                                    pairId: index
+                                });
+                            });
+                            
+                            // Shuffle the cards
+                            shuffleArray(cards);
+                            
+                            // Create and add card elements to container
+                            cards.forEach(card => {
+                                const cardElement = createCard(card);
+                                cardContainer.appendChild(cardElement);
+                            });
+                        }
+                        
+                        function createCard(card) {
+                            const cardDiv = document.createElement('div');
+                            cardDiv.className = 'flip-card';
+                            cardDiv.id = card.id;
+                            cardDiv.dataset.pairId = card.pairId;
+                            
+                            cardDiv.innerHTML = `
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-question"></i>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        ${card.content}
+                                    </div>
+                                </div>
+                            `;
+                            
+                            cardDiv.addEventListener('click', () => flipCard(cardDiv));
+                            
+                            return cardDiv;
+                        }
+                        
+                        function flipCard(card) {
+                            // Prevent flipping if card is already flipped or matched
+                            if (card.classList.contains('flipped') || 
+                                card.classList.contains('matched') ||
+                                flippedCards.length >= 2) {
+                                return;
+                            }
+                            
+                            // Flip the card
+                            card.classList.add('flipped');
+                            flippedCards.push(card);
+                            
+                            // Check for matches if two cards are flipped
+                            if (flippedCards.length === 2) {
+                                attempts++;
+                                attemptsCount.textContent = attempts;
+                                
+                                const card1 = flippedCards[0];
+                                const card2 = flippedCards[1];
+                                
+                                if (card1.dataset.pairId === card2.dataset.pairId) {
+                                    // Match found
+                                    setTimeout(() => {
+                                        card1.classList.add('matched');
+                                        card2.classList.add('matched');
+                                        flippedCards = [];
+                                        matchedPairs++;
+                                        matchesCount.textContent = matchedPairs;
+                                        
+                                        // Check if all pairs are matched
+                                        const currentPairs = levelCardPairs[currentLevel].length;
+                                        if (matchedPairs === currentPairs) {
+                                            if (currentLevel < maxLevel) {
+                                                nextLevel();
+                                            } else {
+                                                gameStatus.innerHTML = '<span style="color: #27ae60;">Congratulations! You completed all levels!</span>';
+                                            }
+                                        }
+                                    }, 500);
+                                } else {
+                                    // No match
+                                    setTimeout(() => {
+                                        card1.classList.remove('flipped');
+                                        card2.classList.remove('flipped');
+                                        flippedCards = [];
+                                    }, 1000);
+                                }
+                            }
+                        }
+                        
+                        function shuffleArray(array) {
+                            for (let i = array.length - 1; i > 0; i--) {
+                                const j = Math.floor(Math.random() * (i + 1));
+                                [array[i], array[j]] = [array[j], array[i]];
+                            }
+                        }
+                        
+                        // Add reset button event listener
+                        resetGameBtn.addEventListener('click', function() {
+                            currentLevel = 1;
+                            initGame();
+                        });
+                        
+                        // Initialize game on load
+                        initGame();
+                    });
+                </script>
             </div>
             
             <div class="concept-section">

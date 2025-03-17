@@ -41,7 +41,7 @@
                          data-fallback="images/math-quiz.png"
                          alt="Math quiz game" class="game-image">
                     <p>Test your multiplication skills with fun questions!</p>
-                    <a href="#math-quiz" class="btn" id="open-math-quiz">Play Now</a>
+                    <a href="#math-quiz" class="btn">Play Now</a>
                 </div>
                 <div class="game-card">
                     <h3>Fact Match</h3>
@@ -49,7 +49,7 @@
                          data-fallback="images/fact-match.png"
                          alt="Fact matching game" class="game-image">
                     <p>Match multiplication facts with their answers</p>
-                    <a href="#fact-match" class="btn" id="open-fact-match">Play Now</a>
+                    <a href="#fact-match" class="btn">Play Now</a>
                 </div>
                 <div class="game-card">
                     <h3>Math Bingo</h3>
@@ -57,7 +57,7 @@
                          data-fallback="images/math-bingo.png"
                          alt="Math bingo game" class="game-image">
                     <p>Play bingo with multiplication facts!</p>
-                    <a href="#math-bingo" class="btn" id="open-math-bingo">Play Now</a>
+                    <a href="#math-bingo" class="btn">Play Now</a>
                 </div>
             </div>
         </section>
@@ -101,6 +101,10 @@
                 <div id="quiz-game-container" class="game-container">
                     <!-- Quiz game will be rendered here by JavaScript -->
                 </div>
+                
+                <div class="go-to-top">
+                    <a href="#" class="btn"><i class="fas fa-arrow-up"></i> Back to Top</a>
+                </div>
             </div>
         </section>
         
@@ -133,6 +137,10 @@
                 
                 <div id="match-game-container" class="game-container">
                     <!-- Match game will be rendered here by JavaScript -->
+                </div>
+                
+                <div class="go-to-top">
+                    <a href="#" class="btn"><i class="fas fa-arrow-up"></i> Back to Top</a>
                 </div>
             </div>
         </section>
@@ -167,6 +175,10 @@
                 <div id="bingo-game-container" class="game-container">
                     <!-- Bingo game will be rendered here by JavaScript -->
                 </div>
+                
+                <div class="go-to-top">
+                    <a href="#" class="btn"><i class="fas fa-arrow-up"></i> Back to Top</a>
+                </div>
             </div>
         </section>
         
@@ -200,5 +212,17 @@
     <script src="js/quiz-game.js"></script>
     <script src="js/matching-game.js"></script>
     <script src="js/bingo-game.js"></script>
+    
+    <!-- Script to prevent modal popups for direct links -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove any existing event listeners on these elements
+            const gameLinks = document.querySelectorAll('.game-card .btn');
+            gameLinks.forEach(link => {
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+            });
+        });
+    </script>
 </body>
 </html>
