@@ -14,6 +14,10 @@
             <button id="decrease-font">A-</button>
             <button id="increase-font">A+</button>
         </div>
+        <div class="navigation-links">
+            <a href="../index.html">Home</a>
+            <a href="../lessons/division-intro.html">Division Lesson</a>
+        </div>
     </header>
     <div id="container">
         <nav>
@@ -44,6 +48,9 @@
                 <button class="game-link" data-section="games" data-game="candy-share" onclick="window.location.href='games/candy-share.html'">Play Candy Share</button>
                 <button class="game-link" data-section="games" data-game="pizza-party" onclick="window.location.href='games/pizza-party.html'">Play Pizza Party</button>
                 <button class="game-link" data-section="games" data-game="imoji-match" onclick="window.location.href='games/imoji-match.html'">Play Division Matching</button>
+                <div class="navigation-button">
+                    <a href="../lessons/division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Go to Division Introduction Lesson</a>
+                </div>
             </div>
 
             <!-- Multiplication Review Section -->
@@ -168,6 +175,17 @@
                 <h3>Stickers</h3>
                 <div id="stickers"></div>
             </div>
+
+            <!-- Resources Section -->
+            <div id="resources" class="section" style="display: none;">
+                <div class="resource-links">
+                    <h3>Related Lessons</h3>
+                    <ul>
+                        <li><a href="../lessons/division-intro.html">Division Introduction</a></li>
+                        <li><a href="../lessons/division-worksheet.html">Division Practice Worksheets</a></li>
+                    </ul>
+                </div>
+            </div>
         </main>
         <aside id="progress-tracker">
             <h2>Your Progress</h2>
@@ -184,6 +202,13 @@
             <ul id="badges-sidebar"></ul>
         </aside>
     </div>
+    <footer>
+        <div class="footer-links">
+            <a href="../lessons/division-intro.html">Division Introduction</a>
+            <a href="../index.html">Back to Main Site</a>
+        </div>
+        <p>&copy; 2023 Division Mastery. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
