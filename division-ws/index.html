@@ -43,6 +43,7 @@
                 <h3>Quick Links</h3>
                 <button class="game-link" data-section="games" data-game="candy-share" onclick="window.location.href='games/candy-share.html'">Play Candy Share</button>
                 <button class="game-link" data-section="games" data-game="pizza-party" onclick="window.location.href='games/pizza-party.html'">Play Pizza Party</button>
+                <button class="game-link" data-section="games" data-game="imoji-match" onclick="window.location.href='games/imoji-match.html'">Play Division Matching</button>
             </div>
 
             <!-- Multiplication Review Section -->
@@ -50,13 +51,42 @@
                 <h2>Multiplication Review</h2>
                 <p>Practice multiplication to get ready for division!</p>
                 <div id="multiplication-quiz">
-                    <p>What is 3 × 4? <button onclick="readText('mult-question')">Read this</button></p>
-                    <select id="mult-answer">
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="16">16</option>
-                    </select>
+                    <div class="quiz-question">
+                        <p>1. What is 3 × 4?</p>
+                        <input type="number" class="quiz-answer" data-correct="12">
+                    </div>
+                    <div class="quiz-question">
+                        <p>2. What is 5 × 6?</p>
+                        <input type="number" class="quiz-answer" data-correct="30">
+                    </div>
+                    <div class="quiz-question">
+                        <p>3. What is 7 × 2?</p>
+                        <input type="number" class="quiz-answer" data-correct="14">
+                    </div>
+                    <div class="quiz-question">
+                        <p>4. What is 8 × 3?</p>
+                        <input type="number" class="quiz-answer" data-correct="24">
+                    </div>
+                    <div class="quiz-question">
+                        <p>5. What is 9 × 4?</p>
+                        <input type="number" class="quiz-answer" data-correct="36">
+                    </div>
+                    <div class="quiz-question">
+                        <p>6. What is 6 × 6?</p>
+                        <input type="number" class="quiz-answer" data-correct="36">
+                    </div>
+                    <div class="quiz-question">
+                        <p>7. What is 2 × 10?</p>
+                        <input type="number" class="quiz-answer" data-correct="20">
+                    </div>
+                    <div class="quiz-question">
+                        <p>8. What is 4 × 5?</p>
+                        <input type="number" class="quiz-answer" data-correct="20">
+                    </div>
+                    <div class="quiz-question">
+                        <p>9. What is 3 × 3?</p>
+                        <input type="number" class="quiz-answer" data-correct="9">
+                    </div>
                 </div>
                 <button id="submit-mult-quiz">Check Answer</button>
                 <p id="mult-result"></p>
@@ -111,6 +141,7 @@
                 <ul>
                     <li><a href="games/candy-share.html" class="game-btn" data-game="candy-share">Candy Share</a></li>
                     <li><a href="games/pizza-party.html" class="game-btn" data-game="pizza-party">Pizza Party</a></li>
+                    <li><a href="games/imoji-match.html" class="game-btn" data-game="imoji-match">Division Matching</a></li>
                     <li><button class="game-btn" data-game="farm-animals">Farm Animals</button></li>
                     <li><button class="game-btn" data-game="division-bingo">Division Bingo</button></li>
                     <li><button class="game-btn" data-game="division-maze">Division Maze</button></li>
@@ -121,26 +152,34 @@
             <!-- Progress Tracker Section -->
             <div id="progress" class="section" style="display: none;">
                 <h2>Progress Tracker</h2>
-                <p>Points: <span id="points">0</span></p>
+                <div class="points-container">
+                    <h3>Total Points: <span id="points" class="points-value">0</span></h3>
+                    <div class="points-bar-container">
+                        <div id="points-bar" class="points-bar"></div>
+                    </div>
+                    <p>Next reward at <span id="next-reward-points">100</span> points</p>
+                </div>
+                <div id="points-history">
+                    <h3>Points History</h3>
+                    <ul id="points-log"></ul>
+                </div>
                 <h3>Badges</h3>
-                <ul id="badges"></ul>
+                <ul id="badges" class="badges-list"></ul>
                 <h3>Stickers</h3>
                 <div id="stickers"></div>
-            </div>
-
-            <!-- Resources Section -->
-            <div id="resources" class="section" style="display: none;">
-                <h2>Resources for Parents and Teachers</h2>
-                <p>Helpful tips and worksheets coming soon!</p>
-                <ul>
-                    <li><a href="https://www.ldonline.org" target="_blank">LD OnLine</a></li>
-                    <li><a href="#" target="_blank">Printable Worksheet (Placeholder)</a></li>
-                </ul>
             </div>
         </main>
         <aside id="progress-tracker">
             <h2>Your Progress</h2>
-            <p>Points: <span id="points-sidebar">0</span></p>
+            <div class="sidebar-points">
+                <div class="points-icon">⭐</div>
+                <div class="points-display">
+                    <span id="points-sidebar">0</span> points
+                    <div class="mini-progress-bar">
+                        <div id="sidebar-points-bar" class="mini-points-bar"></div>
+                    </div>
+                </div>
+            </div>
             <h3>Badges</h3>
             <ul id="badges-sidebar"></ul>
         </aside>
