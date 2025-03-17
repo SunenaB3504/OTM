@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Matching Game</title>
+    <link rel="stylesheet" href="imoji-match.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        #game-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            width: 120px;
+            height: 150px;
+            margin: 10px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-front {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .card-back {
+            background-color: #f1f5f9;
+            transform: rotateY(180deg);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .division-problem {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .division-answer {
+            font-size: 36px;
+            font-weight: bold;
+            color: #16a085;
+        }
+        
+        .division-visual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .division-group {
+            border: 2px dotted #3498db;
+            border-radius: 8px;
+            margin: 3px;
+            padding: 3px;
+        }
+        
+        .division-item {
+            font-size: 16px;
+            margin: 2px;
+        }
+        
+        .navigation-links {
+            margin: 20px 0;
+        }
+        
+        .navigation-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        #score-display {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .level-select {
+            margin: 15px 0;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation-links">
+        <a href="../index.html"><span style="margin-right: 5px;">&#8592;</span> Back to Home</a>
+    </div>
+    
+    <h1>Division Matching Game</h1>
+    <p>Match division problems with their visual representations or answers!</p>
+    
+    <div class="level-select">
+        <button id="easy-level">Easy</button>
+        <button id="medium-level">Medium</button>
+        <button id="hard-level">Hard</button>
+    </div>
+    
+    <div id="game-board"></div>
+    
+    <div id="score-display">
+        Matches: <span id="matches">0</span> | Attempts: <span id="attempts">0</span>
+    </div>
+    
+    <script src="imoji-match.js"></script>
+</body>
+</html>

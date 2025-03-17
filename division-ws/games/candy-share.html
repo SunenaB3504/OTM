@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Share - Division Mastery for All</title>
+    <link rel="stylesheet" href="candy-share.css">
+    <style>
+        .candy-item {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: inline-block;
+            user-select: none;
+        }
+        .candy-item:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Improved bowl styles */
+        .bowl {
+            min-height: 100px;
+            border: 2px dashed #ccc;
+            border-radius: 15px;
+            padding: 10px; 
+            margin: 20px 10px 10px; /* Reduced top margin */
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Adjusted label styling for more compact display */
+        .bowl::before {
+            content: attr(data-friend);
+            position: absolute;
+            top: -16px; /* Position closer to the bowl */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 0 6px; /* Reduced horizontal padding */
+            font-weight: bold;
+            font-size: 14px; /* Explicitly set font size */
+            line-height: 1.2; /* Tighter line height */
+            border-radius: 4px; /* Smaller border radius */
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Lighter shadow */
+            white-space: nowrap;
+            z-index: 1;
+        }
+        
+        .bowl.drag-over {
+            border-color: #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.1);
+            transform: scale(1.05);
+        }
+        
+        #bowls {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        /* Container for initial candies */
+        #candies {
+            min-height: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        /* Style for the check button */
+        #check-candy {
+            display: block;
+            margin: 15px auto;
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        #check-candy:hover {
+            background-color: #45a049;
+        }
+        
+        /* Result message styling */
+        #candy-result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation-links" style="margin: 15px; padding: 10px;">
+        <a href="../index.html" style="display: inline-block; padding: 8px 15px; background-color: #3498db; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+            <span style="margin-right: 5px;">&#8592;</span> Back to Home
+        </a>
+    </div>
+    
+    <div id="candy-share" class="game-section">
+        <h2>Candy Share</h2>
+        <p id="candy-question">Share 12 candies equally among 3 friends.</p>
+        <div id="candies" style="min-height: 60px;"></div>
+        <div id="bowls">
+            <div class="bowl" data-friend="1">Friend 1</div>
+            <div class="bowl" data-friend="2">Friend 2</div>
+            <div class="bowl" data-friend="3">Friend 3</div>
+        </div>
+        <button id="check-candy">Check</button>
+        <p id="candy-result"></p>
+    </div>
+
+    <!-- Template for candy image that will be used by JavaScript -->
+    <template id="candy-template">
+        <img src="../../assets/images/candy.png" alt="Candy Image" class="candy-item" onerror="this.onerror=null; this.src='assets/images/candy.png'; if(this.getAttribute('data-fallback') !== 'true') { this.setAttribute('data-fallback', 'true'); this.onerror=function(){this.src='https://via.placeholder.com/40?text=🍬';} }">
+    </template>
+
+    <script src="candy-share.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const originalInitCandies = window.initCandies || function() {};
+        const bowls = document.querySelectorAll('.bowl');
+        const candiesContainer = document.getElementById('candies');
+        const candyQuestion = document.getElementById('candy-question');
+        const bowlsContainer = document.getElementById('bowls');
+        
+        // Setup bowl drop zones
+        bowls.forEach(bowl => {
+            // Set the text content as a data attribute for the ::before pseudo-element
+            const friendText = bowl.textContent;
+            bowl.setAttribute('data-friend', friendText);
+            // Clear the text content since we'll show it via CSS
+            bowl.textContent = '';
+            
+            bowl.addEventListener('dragover', function(e) {
+                e.preventDefault(); // Allow drop
+                e.dataTransfer.dropEffect = 'move';
+            });
+            
+            bowl.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+                this.classList.add('drag-over');
+            });
+            
+            bowl.addEventListener('dragleave', function() {
+                this.classList.remove('drag-over');
+            });
+            
+            bowl.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+                
+                const candyId = e.dataTransfer.getData('text/plain');
+                console.log('Dropped candy ID:', candyId);
+                
+                // Find the candy anywhere in the document
+                const candy = document.querySelector(`[data-id="${candyId}"]`);
+                
+                if (candy) {
+                    // Simply move the candy to the bowl
+                    this.appendChild(candy);
+                    
+                    // Add dropped animation
+                    candy.classList.add('dropped');
+                    
+                    // Make the candy snap back to normal size
+                    candy.style.transform = 'none';
+                    
+                    console.log('Candy moved to bowl:', this.getAttribute('data-friend'));
+                }
+            });
+        });
+        
+        // Function to generate a new random problem
+        function generateNewProblem() {
+            // Generate random numbers for the problem
+            const friendCount = Math.floor(Math.random() * 3) + 2;  // 2-4 friends
+            const candiesPerFriend = Math.floor(Math.random() * 4) + 2; // 2-5 candies per friend
+            const totalCandies = friendCount * candiesPerFriend;
+            
+            // Update the question text
+            candyQuestion.textContent = `Share ${totalCandies} candies equally among ${friendCount} friends.`;
+            
+            // Clear existing bowls
+            bowlsContainer.innerHTML = '';
+            
+            // Create new bowls based on the friend count
+            for (let i = 1; i <= friendCount; i++) {
+                const bowl = document.createElement('div');
+                bowl.className = 'bowl';
+                bowl.setAttribute('data-friend', `Friend ${i}`);
+                
+                // Setup drop event listeners
+                bowl.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                });
+                
+                bowl.addEventListener('dragenter', function(e) {
+                    e.preventDefault();
+                    this.classList.add('drag-over');
+                });
+                
+                bowl.addEventListener('dragleave', function() {
+                    this.classList.remove('drag-over');
+                });
+                
+                bowl.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('drag-over');
+                    
+                    const candyId = e.dataTransfer.getData('text/plain');
+                    const candy = document.querySelector(`[data-id="${candyId}"]`);
+                    
+                    if (candy) {
+                        this.appendChild(candy);
+                        candy.classList.add('dropped');
+                        candy.style.transform = 'none';
+                    }
+                });
+                
+                bowlsContainer.appendChild(bowl);
+            }
+            
+            // Initialize candies for the new problem
+            initCandies(totalCandies);
+            
+            // Clear any previous result message
+            const result = document.getElementById('candy-result');
+            if (result) {
+                result.textContent = '';
+            }
+        }
+        
+        window.initCandies = function(count) {
+            // Clear existing candies
+            candiesContainer.innerHTML = '';
+            
+            // Move any candies in bowls back to the container
+            document.querySelectorAll('.bowl .candy-item').forEach(candy => {
+                candy.remove(); // Remove from DOM
+            });
+            
+            console.log(`Creating ${count} candy elements`);
+            
+            // Create new candies using the template
+            const template = document.getElementById('candy-template');
+            for (let i = 0; i < count; i++) {
+                const candy = document.importNode(template.content, true).firstElementChild;
+                const candyId = `candy-${i + 1}`;
+                
+                // Set the ID on the element itself, not just in dataset
+                candy.id = candyId;
+                candy.dataset.id = candyId;
+                
+                candiesContainer.appendChild(candy);
+                
+                // Add drag functionality
+                candy.draggable = true;
+                
+                candy.addEventListener('dragstart', function(e) {
+                    console.log('Dragging candy with ID:', this.dataset.id);
+                    e.dataTransfer.setData('text/plain', this.dataset.id);
+                    e.dataTransfer.effectAllowed = 'move';
+                    
+                    // Add a class to show this item is being dragged
+                    this.classList.add('dragging');
+                    
+                    // For Firefox compatibility
+                    setTimeout(() => {
+                        this.style.opacity = '0.4';
+                    }, 0);
+                });
+                
+                candy.addEventListener('dragend', function() {
+                    // Remove the dragging class
+                    this.classList.remove('dragging');
+                    this.style.opacity = '1';
+                });
+            }
+            
+            console.log(`Initialized ${count} candy elements`);
+            
+            // If there was an original initCandies function, call it
+            if (typeof originalInitCandies === 'function') {
+                originalInitCandies.call(window, count);
+            }
+        };
+        
+        // Function to check if candies are distributed equally - FIXED VERSION
+        function checkCandyDistribution() {
+            const result = document.getElementById('candy-result');
+            let isCorrect = true;
+            let firstBowlCount = null;
+            let bowlCounts = [];
+            
+            // Get CURRENT bowls (not the original ones)
+            const currentBowls = document.querySelectorAll('#bowls .bowl');
+            
+            console.log("Checking candy distribution...");
+            
+            // Count candies in each bowl
+            currentBowls.forEach((bowl, index) => {
+                const candyCount = bowl.querySelectorAll('.candy-item').length;
+                bowlCounts.push(candyCount);
+                
+                console.log(`Bowl ${index + 1} has ${candyCount} candies`);
+                
+                // Initialize with the first bowl count
+                if (firstBowlCount === null) {
+                    firstBowlCount = candyCount;
+                } 
+                // Compare with first bowl count
+                else if (candyCount !== firstBowlCount) {
+                    isCorrect = false;
+                }
+                
+                // If any bowl is empty, it's not correct
+                if (candyCount === 0) {
+                    isCorrect = false;
+                }
+            });
+            
+            // Check if all candies are used
+            const totalCandies = candiesContainer.querySelectorAll('.candy-item').length;
+            const usedCandies = document.querySelectorAll('#bowls .candy-item').length;
+            
+            console.log(`Total candies: ${totalCandies + usedCandies}, Used candies: ${usedCandies}`);
+            console.log(`Bowl counts: ${bowlCounts.join(', ')}`);
+            
+            if (usedCandies < totalCandies + usedCandies) {
+                result.textContent = "Make sure to distribute all the candies!";
+                result.style.color = "#ff6b6b";
+                return;
+            }
+            
+            // Display result
+            if (isCorrect) {
+                const candiesPerBowl = firstBowlCount;
+                const totalFriends = currentBowls.length;
+                
+                // Create a formatted division formula
+                const divisionFormula = `<div style="margin-top: 10px; padding: 8px; background-color: #e8f5e9; border-radius: 6px; display: inline-block;">
+                    <strong>Division Formula:</strong> ${usedCandies} ÷ ${totalFriends} = ${candiesPerBowl}
+                    <br><span style="font-size: 0.9em; color: #388e3c;">Total candies ÷ Number of friends = Candies per friend</span>
+                </div>`;
+                
+                // Show success message with division formula
+                result.innerHTML = `Great job! You shared ${usedCandies} candies equally among ${totalFriends} friends. Each friend got ${candiesPerBowl} candies!
+                    ${divisionFormula}`;
+                result.style.color = "#20bf6b";
+            } else {
+                result.textContent = "That's not quite right. Try to give each friend the same number of candies.";
+                result.style.color = "#ff6b6b";
+            }
+        }
+        
+        // Add functionality to check button
+        const checkButton = document.getElementById('check-candy');
+        if (checkButton) {
+            checkButton.addEventListener('click', function() {
+                checkCandyDistribution();
+            });
+        }
+        
+        // Add reset button
+        function addResetButton() {
+            if (document.getElementById('reset-candy')) {
+                return; // Already exists
+            }
+            
+            const resetButton = document.createElement('button');
+            resetButton.id = 'reset-candy';
+            resetButton.textContent = 'New Problem';
+            resetButton.style.marginTop = '10px';
+            resetButton.style.backgroundColor = '#f39c12';
+            resetButton.style.display = 'block';
+            resetButton.style.margin = '10px auto';
+            resetButton.style.padding = '8px 20px';
+            resetButton.style.color = 'white';
+            resetButton.style.border = 'none';
+            resetButton.style.borderRadius = '4px';
+            resetButton.style.cursor = 'pointer';
+            resetButton.style.fontSize = '16px';
+            
+            resetButton.addEventListener('click', function() {
+                generateNewProblem();
+            });
+            
+            // Add the reset button after the check button
+            const checkButton = document.getElementById('check-candy');
+            if (checkButton) {
+                checkButton.parentNode.insertBefore(resetButton, checkButton.nextSibling);
+            }
+        }
+        
+        // Make sure the game initializes
+        setTimeout(() => {
+            if (typeof window.startCandyGame === 'function') {
+                window.startCandyGame();
+            } else {
+                // Generate the first problem instead of just initializing with fixed values
+                generateNewProblem();
+            }
+            console.log("Game initialization attempted");
+            
+            // Add the reset button
+            addResetButton();
+            
+        }, 500);
+    });
+</script>
+</body>
+</html>

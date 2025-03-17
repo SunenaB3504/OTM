@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Mastery for All</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Division Mastery for All</h1>
+        <div id="font-size-controls">
+            <button id="decrease-font">A-</button>
+            <button id="increase-font">A+</button>
+        </div>
+    </header>
+    <div id="container">
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#multiplication" class="nav-link">Multiplication Review</a></li>
+                <li><a href="#understanding" class="nav-link">Understanding Division</a></li>
+                <li><a href="#basic" class="nav-link">Basic Division Practice</a></li>
+                <li><a href="#remainders" class="nav-link">Division with Remainders</a></li>
+                <li><a href="#advanced" class="nav-link">Advanced Division Practice</a></li>
+                <li><a href="#games" class="nav-link">Games and Challenges</a></li>
+                <li><a href="#progress" class="nav-link">Progress Tracker</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+        </nav>
+        <main id="content">
+            <!-- Home Section -->
+            <div id="home" class="section">
+                <h2>Welcome to Division Mastery for All!</h2>
+                <p>Learn division step-by-step with fun games and activities!</p>
+                <div id="login-area">
+                    <p>Enter your name to track your progress:</p>
+                    <input type="text" id="name-input" placeholder="Your name">
+                    <button id="start-button">Start</button>
+                    <p id="welcome-message" style="display: none;">Welcome, <span id="user-name"></span>!</p>
+                </div>
+                <h3>Quick Links</h3>
+                <button class="game-link" data-section="games" data-game="candy-share" onclick="window.location.href='games/candy-share.html'">Play Candy Share</button>
+                <button class="game-link" data-section="games" data-game="pizza-party" onclick="window.location.href='games/pizza-party.html'">Play Pizza Party</button>
+            </div>
+
+            <!-- Multiplication Review Section -->
+            <div id="multiplication" class="section" style="display: none;">
+                <h2>Multiplication Review</h2>
+                <p>Practice multiplication to get ready for division!</p>
+                <div id="multiplication-quiz">
+                    <p>What is 3 × 4? <button onclick="readText('mult-question')">Read this</button></p>
+                    <select id="mult-answer">
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                    </select>
+                </div>
+                <button id="submit-mult-quiz">Check Answer</button>
+                <p id="mult-result"></p>
+            </div>
+
+            <!-- Understanding Division Section -->
+            <div id="understanding" class="section" style="display: none;">
+                <h2>Understanding Division</h2>
+                <p id="division-text">Division is sharing things equally. For example, if you have 6 apples and 2 friends, each friend gets 3 apples.</p>
+                <button onclick="readText('division-text')">Read this</button>
+                <div class="activity">
+                    <p>Drag 6 apples into 2 groups:</p>
+                    <!-- Placeholder for drag-and-drop activity -->
+                    <div class="drag-area">Drag apples here (Activity coming soon!)</div>
+                </div>
+            </div>
+
+            <!-- Basic Division Practice Section -->
+            <div id="basic" class="section" style="display: none;">
+                <h2>Basic Division Practice</h2>
+                <p>Try dividing small numbers!</p>
+                <p>12 ÷ 3 = ?</p>
+                <input type="number" id="basic-answer">
+                <button id="check-basic">Check</button>
+                <p id="basic-result"></p>
+            </div>
+
+            <!-- Division with Remainders Section -->
+            <div id="remainders" class="section" style="display: none;">
+                <h2>Division with Remainders</h2>
+                <p>Sometimes things don’t divide evenly. That’s a remainder!</p>
+                <p>13 ÷ 4 = ? (How many groups of 4, and what’s left?)</p>
+                <input type="number" id="remainder-answer" placeholder="Answer">
+                <input type="number" id="remainder-left" placeholder="Remainder">
+                <button id="check-remainder">Check</button>
+                <p id="remainder-result"></p>
+            </div>
+
+            <!-- Advanced Division Practice Section -->
+            <div id="advanced" class="section" style="display: none;">
+                <h2>Advanced Division Practice</h2>
+                <p>Ready for bigger numbers? Try 24 ÷ 6.</p>
+                <input type="number" id="advanced-answer">
+                <button id="check-advanced">Check</button>
+                <p id="advanced-result"></p>
+            </div>
+
+            <!-- Games and Challenges Section -->
+            <div id="games" class="section" style="display: none;">
+                <h2>Games and Challenges</h2>
+                <p>Have fun while learning division!</p>
+                <ul>
+                    <li><a href="games/candy-share.html" class="game-btn" data-game="candy-share">Candy Share</a></li>
+                    <li><a href="games/pizza-party.html" class="game-btn" data-game="pizza-party">Pizza Party</a></li>
+                    <li><button class="game-btn" data-game="farm-animals">Farm Animals</button></li>
+                    <li><button class="game-btn" data-game="division-bingo">Division Bingo</button></li>
+                    <li><button class="game-btn" data-game="division-maze">Division Maze</button></li>
+                </ul>
+                <div id="game-area">Select a game to play! (Coming soon)</div>
+            </div>
+
+            <!-- Progress Tracker Section -->
+            <div id="progress" class="section" style="display: none;">
+                <h2>Progress Tracker</h2>
+                <p>Points: <span id="points">0</span></p>
+                <h3>Badges</h3>
+                <ul id="badges"></ul>
+                <h3>Stickers</h3>
+                <div id="stickers"></div>
+            </div>
+
+            <!-- Resources Section -->
+            <div id="resources" class="section" style="display: none;">
+                <h2>Resources for Parents and Teachers</h2>
+                <p>Helpful tips and worksheets coming soon!</p>
+                <ul>
+                    <li><a href="https://www.ldonline.org" target="_blank">LD OnLine</a></li>
+                    <li><a href="#" target="_blank">Printable Worksheet (Placeholder)</a></li>
+                </ul>
+            </div>
+        </main>
+        <aside id="progress-tracker">
+            <h2>Your Progress</h2>
+            <p>Points: <span id="points-sidebar">0</span></p>
+            <h3>Badges</h3>
+            <ul id="badges-sidebar"></ul>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
