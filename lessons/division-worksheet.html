@@ -8,126 +8,152 @@
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add additional meta tags for accessibility -->
-    <meta name="description" content="Practice division and its relationship to multiplication with printable worksheets">
-    
-    <!-- PWA meta tags -->
-    <meta name="theme-color" content="#4a6bff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Math Fun">
-    
-    <!-- PWA manifest and icons -->
-    <link rel="manifest" href="../manifest.json">
-    <link rel="apple-touch-icon" href="../images/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" href="../images/icons/icon-192x192.png">
+    <meta name="description" content="Practice division problems with this interactive worksheet">
     
     <style>
-        /* Worksheet specific styles */
-        .worksheet-section {
-            margin-bottom: 30px;
-            padding: 15px;
-            border: 1px solid #ddd;
+        /* Specific styles for division worksheet */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .problem-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px 0;
+        .worksheet-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .problem {
-            text-align: center;
-            margin: 10px;
-            padding: 10px;
-            border: 1px dashed #9b59b6;
-            width: 120px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            background-color: white;
         }
         
-        .wide-problem {
-            width: 80%;
-        }
-        
-        .equation {
-            font-size: 20px;
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
             font-weight: bold;
-            margin: 10px 0;
+            color: #495057;
         }
         
-        .answer-box {
-            border: 1px solid #000;
-            width: 40px;
-            height: 30px;
-            margin: 10px auto;
+        .problem-content {
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 15px 0;
+            font-size: 1.2rem;
         }
         
-        .fact-family {
-            border: 2px solid #9b59b6;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #f5eef8;
-        }
-        
-        .fact-family-item {
-            border-bottom: 1px dashed #ccc;
-            padding: 5px 0;
-        }
-        
-        .fact-family-item:last-child {
-            border-bottom: none;
-        }
-        
-        .group-visual {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 10px 0;
-        }
-        
-        .group {
-            border: 1px solid #9b59b6;
-            border-radius: 5px;
-            margin: 5px;
+        .answer-input {
+            width: 60px;
+            height: 40px;
+            margin: 0 10px;
             padding: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: 2px solid #6c757d;
+            border-radius: 4px;
         }
         
-        .dot {
-            width: 15px;
-            height: 15px;
-            background-color: #9b59b6;
-            border-radius: 50%;
+        .answer-input:focus {
+            border-color: #4a6bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.25);
+        }
+        
+        .remainder-input {
+            width: 50px;
+            height: 40px;
+            margin-left: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: 2px solid #6c757d;
+            border-radius: 4px;
+        }
+        
+        .problem-feedback {
+            height: 24px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .check-button {
+            background-color: #4a6bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .check-button:hover {
+            background-color: #3a56d4;
+        }
+        
+        .section-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .correct {
+            border-color: #28a745 !important;
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        
+        .incorrect {
+            border-color: #dc3545 !important;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        
+        .hint-button {
+            background: none;
+            border: none;
+            color: #4a6bff;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .hint-text {
+            display: none;
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .fraction {
             display: inline-block;
-            margin: 2px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 5px;
         }
         
-        .answers-section {
-            margin-top: 40px;
-            border-top: 2px dashed #999;
-            padding-top: 20px;
-            page-break-before: always;
+        .fraction .numerator {
+            border-bottom: 1px solid black;
+            padding: 0 3px;
         }
         
-        @media print {
-            .no-print {
-                display: none;
-            }
-            body {
-                background-color: white;
-            }
-            .container {
-                box-shadow: none;
-            }
+        .fraction .denominator {
+            padding: 0 3px;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <!-- Add logo with consistent sizing -->
             <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
             <nav id="main-nav">
                 <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
@@ -137,6 +163,7 @@
                     <li><a href="../games.html">Games</a></li>
                     <li><a href="../progress.html">Progress</a></li>
                     <li><a href="../settings.html">Settings</a></li>
+                    <li><a href="../division-ws/index.html">Division Mastery</a></li>
                 </ul>
             </nav>
         </div>
@@ -145,301 +172,331 @@
     <main>
         <div class="container">
             <div style="margin: 20px 0">
-                <a href="division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Division Introduction</a>
+                <a href="../lessons.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Lessons</a>
+                <a href="division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Division Intro</a>
+                <a href="../division-ws/index.html" class="btn"><i class="fas fa-arrow-right"></i> Go to Division Mastery</a>
             </div>
             
             <h1>Division Practice Worksheet</h1>
-            <p>Practice the relationship between division and multiplication!</p>
-            
-            <button class="btn no-print" onclick="window.print()"><i class="fas fa-print"></i> Print Worksheet</button>
+            <p>Complete these division problems to practice your skills!</p>
             
             <div class="worksheet-section">
-                <h2>Convert Division to Multiplication</h2>
-                <p>Write the matching multiplication fact for each division problem.</p>
+                <h2>Basic Division Problems</h2>
+                <p>Solve these basic division problems. Type your answer in the box.</p>
                 
-                <div class="problem-row">
-                    <div class="problem">
-                        <div class="equation">14 ÷ 2 = 7</div>
-                        <p>Multiplication fact:</p>
-                        <div class="answer-box"></div>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 1</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
-                    
-                    <div class="problem">
-                        <div class="equation">18 ÷ 3 = 6</div>
-                        <p>Multiplication fact:</p>
-                        <div class="answer-box"></div>
+                    <div class="problem-content">
+                        <span>8 ÷ 2 = </span>
+                        <input type="number" class="answer-input" data-correct="4">
                     </div>
-                    
-                    <div class="problem">
-                        <div class="equation">24 ÷ 8 = 3</div>
-                        <p>Multiplication fact:</p>
-                        <div class="answer-box"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="worksheet-section">
-                <h2>Convert Multiplication to Division</h2>
-                <p>Write <em>two</em> division facts for each multiplication fact.</p>
-                
-                <div class="problem-row">
-                    <div class="problem">
-                        <div class="equation">5 × 6 = 30</div>
-                        <p>Division fact 1:</p>
-                        <div class="answer-box"></div>
-                        <p>Division fact 2:</p>
-                        <div class="answer-box"></div>
-                    </div>
-                    
-                    <div class="problem">
-                        <div class="equation">9 × 4 = 36</div>
-                        <p>Division fact 1:</p>
-                        <div class="answer-box"></div>
-                        <p>Division fact 2:</p>
-                        <div class="answer-box"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="worksheet-section">
-                <h2>Complete the Fact Families</h2>
-                <p>Fill in the missing parts of each fact family.</p>
-                
-                <div class="problem-row">
-                    <div class="fact-family">
-                        <h4>Fact Family with: 4, 7, and 28</h4>
-                        <div class="fact-family-item">
-                            <p>4 × 7 = _______</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>7 × 4 = _______</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>28 ÷ 4 = _______</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>28 ÷ 7 = _______</p>
-                        </div>
-                    </div>
-                    
-                    <div class="fact-family">
-                        <h4>Fact Family with: 6, 5, and 30</h4>
-                        <div class="fact-family-item">
-                            <p>_____ × _____ = 30</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>_____ × _____ = 30</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>30 ÷ _____ = _____</p>
-                        </div>
-                        <div class="fact-family-item">
-                            <p>30 ÷ _____ = _____</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="worksheet-section">
-                <h2>Division with Objects</h2>
-                <p>Look at the groups of objects. Write the division and multiplication facts.</p>
-                
-                <div class="problem-row">
-                    <div class="problem wide-problem">
-                        <p>15 objects divided into 3 equal groups:</p>
-                        <div class="group-visual">
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                        
-                        <p>Division fact: _____________________</p>
-                        <p>Multiplication fact: _____________________</p>
-                    </div>
+                    <div class="hint-text">Think about how many groups of 2 you can make from 8 objects.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
                 </div>
                 
-                <div class="problem-row">
-                    <div class="problem wide-problem">
-                        <p>12 objects divided into 4 equal groups:</p>
-                        <div class="group-visual">
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="group">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                        
-                        <p>Division fact: _____________________</p>
-                        <p>Multiplication fact: _____________________</p>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 2</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
+                    <div class="problem-content">
+                        <span>15 ÷ 3 = </span>
+                        <input type="number" class="answer-input" data-correct="5">
+                    </div>
+                    <div class="hint-text">If you have 15 objects and put them in groups of 3, how many groups will you have?</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 3</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>20 ÷ 4 = </span>
+                        <input type="number" class="answer-input" data-correct="5">
+                    </div>
+                    <div class="hint-text">Think about the multiplication fact: 5 × 4 = 20. So 20 ÷ 4 must be 5!</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 4</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>9 ÷ 3 = </span>
+                        <input type="number" class="answer-input" data-correct="3">
+                    </div>
+                    <div class="hint-text">Think about the multiplication fact: 3 × 3 = 9. So 9 ÷ 3 must be 3!</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 5</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>16 ÷ 4 = </span>
+                        <input type="number" class="answer-input" data-correct="4">
+                    </div>
+                    <div class="hint-text">If you have 16 objects and put them in groups of 4, how many groups will you have?</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 6</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>25 ÷ 5 = </span>
+                        <input type="number" class="answer-input" data-correct="5">
+                    </div>
+                    <div class="hint-text">Think about the multiplication fact: 5 × 5 = 25. So 25 ÷ 5 must be 5!</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 7</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>18 ÷ 6 = </span>
+                        <input type="number" class="answer-input" data-correct="3">
+                    </div>
+                    <div class="hint-text">If you have 18 objects and put them in groups of 6, how many groups will you have?</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 8</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>0 ÷ 5 = </span>
+                        <input type="number" class="answer-input" data-correct="0">
+                    </div>
+                    <div class="hint-text">If you have 0 objects and try to put them in groups of 5, how many complete groups can you make?</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 9</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>12 ÷ 1 = </span>
+                        <input type="number" class="answer-input" data-correct="12">
+                    </div>
+                    <div class="hint-text">When you divide a number by 1, you get the same number back. So 12 ÷ 1 = 12.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 10</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>36 ÷ 9 = </span>
+                        <input type="number" class="answer-input" data-correct="4">
+                    </div>
+                    <div class="hint-text">Think about the multiplication fact: 4 × 9 = 36. So 36 ÷ 9 must be 4!</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="section-buttons">
+                    <button class="btn" onclick="checkAllInSection(this)">Check All Answers</button>
+                    <button class="btn" onclick="showAllAnswers(this)">Show All Answers</button>
                 </div>
             </div>
             
             <div class="worksheet-section">
-                <h2>Real-World Problems</h2>
+                <h2>Division with Remainders</h2>
+                <p>Solve these division problems. Some might have remainders!</p>
                 
-                <div class="problem-row">
-                    <div class="problem wide-problem">
-                        <p>1. Maria has 24 stickers and wants to give the same number to each of her 6 friends. How many stickers will each friend get?</p>
-                        <p>Division equation: _____________________</p>
-                        <p>Related multiplication fact: _____________________</p>
-                        <p>Answer: _____________________</p>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 11</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
+                    <div class="problem-content">
+                        <span>7 ÷ 2 = </span>
+                        <input type="number" class="answer-input" data-correct="3">
+                        <span> with remainder </span>
+                        <input type="number" class="remainder-input" data-correct="1">
+                    </div>
+                    <div class="hint-text">How many complete groups of 2 can you make with 7 objects? How many objects will be left over?</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswerWithRemainder(this)">Check Answer</button>
                 </div>
                 
-                <div class="problem-row">
-                    <div class="problem wide-problem">
-                        <p>2. A baker has 42 cupcakes and puts them into boxes of 7 cupcakes each. How many boxes does the baker need?</p>
-                        <p>Division equation: _____________________</p>
-                        <p>Related multiplication fact: _____________________</p>
-                        <p>Answer: _____________________</p>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 12</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
+                    <div class="problem-content">
+                        <span>11 ÷ 3 = </span>
+                        <input type="number" class="answer-input" data-correct="3">
+                        <span> with remainder </span>
+                        <input type="number" class="remainder-input" data-correct="2">
+                    </div>
+                    <div class="hint-text">3 × 3 = 9, and 11 - 9 = 2. So you can make 3 groups of 3 with 2 left over.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswerWithRemainder(this)">Check Answer</button>
                 </div>
                 
-                <div class="problem-row">
-                    <div class="problem wide-problem">
-                        <p>3. There are 35 students going on a field trip. If 5 students fit in each car, how many cars are needed?</p>
-                        <p>Division equation: _____________________</p>
-                        <p>Related multiplication fact: _____________________</p>
-                        <p>Answer: _____________________</p>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 13</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
+                    <div class="problem-content">
+                        <span>17 ÷ 5 = </span>
+                        <input type="number" class="answer-input" data-correct="3">
+                        <span> with remainder </span>
+                        <input type="number" class="remainder-input" data-correct="2">
+                    </div>
+                    <div class="hint-text">5 × 3 = 15, and 17 - 15 = 2. So you can make 3 groups of 5 with 2 left over.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswerWithRemainder(this)">Check Answer</button>
+                </div>
+                
+                <div class="section-buttons">
+                    <button class="btn" onclick="checkAllInSection(this)">Check All Answers</button>
+                    <button class="btn" onclick="showAllAnswers(this)">Show All Answers</button>
                 </div>
             </div>
             
             <div class="worksheet-section">
-                <h2>Check Your Multiplication</h2>
-                <p>Use division to check if these multiplication facts are correct:</p>
+                <h2>Word Problems</h2>
+                <p>Solve these division word problems.</p>
                 
-                <div class="problem-row">
-                    <div class="problem">
-                        <div class="equation">5 × 7 = 35</div>
-                        <p>Check using division:</p>
-                        <p>35 ÷ 5 = _____</p>
-                        <p>35 ÷ 7 = _____</p>
-                        <p>Is it correct? _____</p>
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 14</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
-                    
-                    <div class="problem">
-                        <div class="equation">6 × 6 = 36</div>
-                        <p>Check using division:</p>
-                        <p>36 ÷ 6 = _____</p>
-                        <p>Is it correct? _____</p>
+                    <div class="problem-content" style="display: block; text-align: left;">
+                        <p>Maria has 24 cookies. She wants to share them equally among 6 friends. How many cookies will each friend get?</p>
+                        <p>Each friend gets <input type="number" class="answer-input" data-correct="4"> cookies.</p>
                     </div>
-                    
-                    <div class="problem">
-                        <div class="equation">4 × 8 = 30</div>
-                        <p>Check using division:</p>
-                        <p>30 ÷ 4 = _____</p>
-                        <p>30 ÷ 8 = _____</p>
-                        <p>Is it correct? _____</p>
+                    <div class="hint-text">To solve this problem, divide the total number of cookies by the number of friends: 24 ÷ 6.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 15</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
                     </div>
+                    <div class="problem-content" style="display: block; text-align: left;">
+                        <p>Sam has 30 stickers. He wants to put them on 4 pages, with the same number of stickers on each page. How many stickers will be on each page? Will there be any stickers left over?</p>
+                        <p>Each page will have <input type="number" class="answer-input" data-correct="7"> stickers with <input type="number" class="remainder-input" data-correct="2"> stickers left over.</p>
+                    </div>
+                    <div class="hint-text">Divide 30 by 4. Remember to check if there's a remainder by multiplying your answer by 4 and comparing to 30.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswerWithRemainder(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 16</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content" style="display: block; text-align: left;">
+                        <p>A teacher has 27 students in her class. She wants to arrange them into equal groups for a project. If she wants 3 students in each group, how many groups will she need?</p>
+                        <p>She will need <input type="number" class="answer-input" data-correct="9"> groups.</p>
+                    </div>
+                    <div class="hint-text">To find the number of groups, divide the total number of students by the number of students in each group: 27 ÷ 3.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="section-buttons">
+                    <button class="btn" onclick="checkAllInSection(this)">Check All Answers</button>
+                    <button class="btn" onclick="showAllAnswers(this)">Show All Answers</button>
                 </div>
             </div>
             
-            <div class="answers-section">
-                <h2 class="no-print">Answer Key</h2>
-                <div class="no-print">
-                    <p><strong>Convert Division to Multiplication:</strong></p>
-                    <ul>
-                        <li>14 ÷ 2 = 7: 2 × 7 = 14</li>
-                        <li>18 ÷ 3 = 6: 3 × 6 = 18</li>
-                        <li>24 ÷ 8 = 3: 8 × 3 = 24</li>
-                    </ul>
-                    
-                    <p><strong>Convert Multiplication to Division:</strong></p>
-                    <ul>
-                        <li>5 × 6 = 30: 30 ÷ 5 = 6 and 30 ÷ 6 = 5</li>
-                        <li>9 × 4 = 36: 36 ÷ 9 = 4 and 36 ÷ 4 = 9</li>
-                    </ul>
-                    
-                    <p><strong>Complete the Fact Families:</strong></p>
-                    <ul>
-                        <li>Fact Family with 4, 7, and 28:
-                            <ul>
-                                <li>4 × 7 = 28</li>
-                                <li>7 × 4 = 28</li>
-                                <li>28 ÷ 4 = 7</li>
-                                <li>28 ÷ 7 = 4</li>
-                            </ul>
-                        </li>
-                        <li>Fact Family with 6, 5, and 30:
-                            <ul>
-                                <li>6 × 5 = 30</li>
-                                <li>5 × 6 = 30</li>
-                                <li>30 ÷ 6 = 5</li>
-                                <li>30 ÷ 5 = 6</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-                    <p><strong>Division with Objects:</strong></p>
-                    <ul>
-                        <li>15 objects divided into 3 equal groups:
-                            <ul>
-                                <li>Division fact: 15 ÷ 3 = 5</li>
-                                <li>Multiplication fact: 3 × 5 = 15</li>
-                            </ul>
-                        </li>
-                        <li>12 objects divided into 4 equal groups:
-                            <ul>
-                                <li>Division fact: 12 ÷ 4 = 3</li>
-                                <li>Multiplication fact: 4 × 3 = 12</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-                    <p><strong>Real-World Problems:</strong></p>
-                    <ul>
-                        <li>Problem 1: 24 ÷ 6 = 4 stickers per friend; 6 × 4 = 24</li>
-                        <li>Problem 2: 42 ÷ 7 = 6 boxes; 7 × 6 = 42</li>
-                        <li>Problem 3: 35 ÷ 5 = 7 cars; 5 × 7 = 35</li>
-                    </ul>
-                    
-                    <p><strong>Check Your Multiplication:</strong></p>
-                    <ul>
-                        <li>5 × 7 = 35: 35 ÷ 5 = 7, 35 ÷ 7 = 5 (Yes, it's correct)</li>
-                        <li>6 × 6 = 36: 36 ÷ 6 = 6 (Yes, it's correct)</li>
-                        <li>4 × 8 = 30: 30 ÷ 4 = 7.5, 30 ÷ 8 = 3.75 (No, it's not correct. 4 × 8 = 32)</li>
-                    </ul>
+            <div class="worksheet-section">
+                <h2>Challenge Problems</h2>
+                <p>Try these more challenging division problems!</p>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 17</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content">
+                        <span>64 ÷ 8 = </span>
+                        <input type="number" class="answer-input" data-correct="8">
+                    </div>
+                    <div class="hint-text">Think about the multiplication fact: 8 × 8 = 64. So 64 ÷ 8 must be 8!</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswer(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 18</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content" style="display: block; text-align: left;">
+                        <p>A baker has 100 muffins. She puts them in boxes of 12. How many full boxes can she make, and how many muffins will be left over?</p>
+                        <p>She can make <input type="number" class="answer-input" data-correct="8"> full boxes with <input type="number" class="remainder-input" data-correct="4"> muffins left over.</p>
+                    </div>
+                    <div class="hint-text">Divide 100 by 12. How many times does 12 go into 100? Then find how many are left over.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkAnswerWithRemainder(this)">Check Answer</button>
+                </div>
+                
+                <div class="problem">
+                    <div class="problem-header">
+                        <span>Problem 19</span>
+                        <button class="hint-button" onclick="showHint(this)">Need a hint?</button>
+                    </div>
+                    <div class="problem-content" style="display: block; text-align: left;">
+                        <p>Write 13/4 as a mixed number.</p>
+                        <p><input type="number" class="answer-input" data-correct="3"> and <div class="fraction" style="display: inline-block;"><div class="numerator"><input type="number" class="remainder-input" data-correct="1" style="width: 30px;"></div><div class="denominator"><input type="number" class="remainder-input" data-correct="4" style="width: 30px;"></div></div></p>
+                    </div>
+                    <div class="hint-text">Divide 13 by 4. The quotient is the whole number part, and the remainder over the divisor is the fraction part.</div>
+                    <div class="problem-feedback"></div>
+                    <button class="check-button" onclick="checkMixedNumber(this)">Check Answer</button>
+                </div>
+                
+                <div class="section-buttons">
+                    <button class="btn" onclick="checkAllInSection(this)">Check All Answers</button>
+                    <button class="btn" onclick="showAllAnswers(this)">Show All Answers</button>
                 </div>
             </div>
             
-            <div class="no-print" style="margin: 30px 0; text-align: center;">
-                <a href="division-intro.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Division Introduction</a>
-                <a href="../lessons.html" class="btn">All Lessons <i class="fas fa-th-list"></i></a>
+            <div class="next-lesson">
+                <p>Want more practice with division?</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <a href="../division-ws/index.html" class="btn btn-large">Try Division Mastery <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </main>
@@ -447,22 +504,172 @@
     <footer>
         <div class="container">
             <p>&copy; 2023 Math Fun. All rights reserved.</p>
-            <div class="attribution">
-                <p>Icons provided by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
-            </div>
         </div>
     </footer>
     
-    <!-- Install button for PWA (hidden by default) -->
-    <div id="install-button" style="display: none;" class="install-banner">
-        <div>
-            <h3>Install Math Fun</h3>
-            <p>Add this app to your home screen for quick access</p>
-        </div>
-        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
-    </div>
-
-    <script src="../js/main.js"></script>
-    <script src="../js/pwa.js"></script>
+    <script>
+        // Show hint when the hint button is clicked
+        function showHint(button) {
+            const problem = button.closest('.problem');
+            const hintText = problem.querySelector('.hint-text');
+            
+            if (hintText.style.display === 'block') {
+                hintText.style.display = 'none';
+                button.textContent = 'Need a hint?';
+            } else {
+                hintText.style.display = 'block';
+                button.textContent = 'Hide hint';
+            }
+        }
+        
+        // Check a single basic division answer
+        function checkAnswer(button) {
+            const problem = button.closest('.problem');
+            const input = problem.querySelector('.answer-input');
+            const feedback = problem.querySelector('.problem-feedback');
+            
+            const userAnswer = parseInt(input.value);
+            const correctAnswer = parseInt(input.dataset.correct);
+            
+            if (userAnswer === correctAnswer) {
+                feedback.textContent = '✓ Correct! Great job!';
+                feedback.style.color = '#28a745';
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+            } else {
+                feedback.textContent = '✗ Not quite right. Try again!';
+                feedback.style.color = '#dc3545';
+                input.classList.add('incorrect');
+                input.classList.remove('correct');
+            }
+        }
+        
+        // Check division with remainder
+        function checkAnswerWithRemainder(button) {
+            const problem = button.closest('.problem');
+            const answerInput = problem.querySelector('.answer-input');
+            const remainderInput = problem.querySelector('.remainder-input');
+            const feedback = problem.querySelector('.problem-feedback');
+            
+            const userAnswer = parseInt(answerInput.value);
+            const userRemainder = parseInt(remainderInput.value);
+            const correctAnswer = parseInt(answerInput.dataset.correct);
+            const correctRemainder = parseInt(remainderInput.dataset.correct);
+            
+            const answerCorrect = userAnswer === correctAnswer;
+            const remainderCorrect = userRemainder === correctRemainder;
+            
+            if (answerCorrect && remainderCorrect) {
+                feedback.textContent = '✓ Correct! Great job!';
+                feedback.style.color = '#28a745';
+                answerInput.classList.add('correct');
+                remainderInput.classList.add('correct');
+                answerInput.classList.remove('incorrect');
+                remainderInput.classList.remove('incorrect');
+            } else {
+                feedback.textContent = '✗ Not quite right. Try again!';
+                feedback.style.color = '#dc3545';
+                
+                if (!answerCorrect) {
+                    answerInput.classList.add('incorrect');
+                    answerInput.classList.remove('correct');
+                } else {
+                    answerInput.classList.add('correct');
+                    answerInput.classList.remove('incorrect');
+                }
+                
+                if (!remainderCorrect) {
+                    remainderInput.classList.add('incorrect');
+                    remainderInput.classList.remove('correct');
+                } else {
+                    remainderInput.classList.add('correct');
+                    remainderInput.classList.remove('incorrect');
+                }
+            }
+        }
+        
+        // Check mixed number (whole + fraction)
+        function checkMixedNumber(button) {
+            const problem = button.closest('.problem');
+            const wholeInput = problem.querySelector('.answer-input');
+            const numeratorInput = problem.querySelector('.numerator input');
+            const denominatorInput = problem.querySelector('.denominator input');
+            const feedback = problem.querySelector('.problem-feedback');
+            
+            const userWhole = parseInt(wholeInput.value);
+            const userNumerator = parseInt(numeratorInput.value);
+            const userDenominator = parseInt(denominatorInput.value);
+            
+            const correctWhole = parseInt(wholeInput.dataset.correct);
+            const correctNumerator = parseInt(numeratorInput.dataset.correct);
+            const correctDenominator = parseInt(denominatorInput.dataset.correct);
+            
+            const wholeCorrect = userWhole === correctWhole;
+            const numeratorCorrect = userNumerator === correctNumerator;
+            const denominatorCorrect = userDenominator === correctDenominator;
+            
+            if (wholeCorrect && numeratorCorrect && denominatorCorrect) {
+                feedback.textContent = '✓ Correct! Great job!';
+                feedback.style.color = '#28a745';
+                wholeInput.classList.add('correct');
+                numeratorInput.classList.add('correct');
+                denominatorInput.classList.add('correct');
+                wholeInput.classList.remove('incorrect');
+                numeratorInput.classList.remove('incorrect');
+                denominatorInput.classList.remove('incorrect');
+            } else {
+                feedback.textContent = '✗ Not quite right. Try again!';
+                feedback.style.color = '#dc3545';
+                
+                wholeInput.classList.toggle('correct', wholeCorrect);
+                wholeInput.classList.toggle('incorrect', !wholeCorrect);
+                
+                numeratorInput.classList.toggle('correct', numeratorCorrect);
+                numeratorInput.classList.toggle('incorrect', !numeratorCorrect);
+                
+                denominatorInput.classList.toggle('correct', denominatorCorrect);
+                denominatorInput.classList.toggle('incorrect', !denominatorCorrect);
+            }
+        }
+        
+        // Check all answers in a section
+        function checkAllInSection(button) {
+            const section = button.closest('.worksheet-section');
+            const checkButtons = section.querySelectorAll('.check-button');
+            
+            checkButtons.forEach(btn => {
+                btn.click();
+            });
+        }
+        
+        // Show all answers in a section
+        function showAllAnswers(button) {
+            const section = button.closest('.worksheet-section');
+            const problems = section.querySelectorAll('.problem');
+            
+            problems.forEach(problem => {
+                const answerInputs = problem.querySelectorAll('.answer-input');
+                const remainderInputs = problem.querySelectorAll('.remainder-input');
+                const feedback = problem.querySelector('.problem-feedback');
+                
+                answerInputs.forEach(input => {
+                    input.value = input.dataset.correct;
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                });
+                
+                remainderInputs.forEach(input => {
+                    input.value = input.dataset.correct;
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                });
+                
+                if (feedback) {
+                    feedback.textContent = 'Here are the correct answers.';
+                    feedback.style.color = '#4a6bff';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

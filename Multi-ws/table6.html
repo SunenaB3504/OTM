@@ -3,28 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table of 6</title>
+    <title>Table of 6 - Multiplication Tables Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <a href="index.html">Home</a>
-    <h1>Multiplication Table of 6</h1>
-    <div id="tableDisplay"></div>
-    <div id="quiz">
-        <h2>Quiz Time!</h2>
-        <p id="problem"></p>
-        <label for="userAnswer">Your Answer:</label>
-        <input type="number" id="userAnswer">
-        <button id="checkButton">Check Answer</button>
-        <button id="nextButton">Next Problem</button>
-        <p id="feedback" aria-live="polite"></p>
-        <p id="score">Score: 0</p>
-    </div>
+    <header>
+        <div class="container">
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <div id="font-size-controls">
+                <button id="decrease-font">A-</button>
+                <button id="increase-font">A+</button>
+            </div>
+            <nav id="main-nav">
+                // ...existing code...
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Multiplication Table of 6</h2>
+                <p>Learn and practice the 6 times table.</p>
+            </div>
+        </section>
+
+        <section class="table-practice">
+            <div class="container">
+                <div class="practice-card">
+                    <h3>Times Table Chart</h3>
+                    <div class="table-container">
+                        <table class="times-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Multiplication Table of 6</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>6 × 1 =</td><td>6</td></tr>
+                                <tr><td>6 × 2 =</td><td>12</td></tr>
+                                <tr><td>6 × 3 =</td><td>18</td></tr>
+                                <tr><td>6 × 4 =</td><td>24</td></tr>
+                                <tr><td>6 × 5 =</td><td>30</td></tr>
+                                <tr><td>6 × 6 =</td><td>36</td></tr>
+                                <tr><td>6 × 7 =</td><td>42</td></tr>
+                                <tr><td>6 × 8 =</td><td>48</td></tr>
+                                <tr><td>6 × 9 =</td><td>54</td></tr>
+                                <tr><td>6 × 10 =</td><td>60</td></tr>
+                                <tr><td>6 × 11 =</td><td>66</td></tr>
+                                <tr><td>6 × 12 =</td><td>72</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Interactive Practice</h3>
+                    <div class="practice-container">
+                        <div id="practice-area">
+                            <div id="question-display">
+                                <h4>Solve this problem:</h4>
+                                <p id="current-question" class="question">6 × <span id="question-factor">?</span> = ?</p>
+                            </div>
+                            <div id="answer-area">
+                                // ...existing code...
+                            </div>
+                            <div id="feedback" class="feedback-message"></div>
+                            <div id="progress-area">
+                                // ...existing code...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Visual Learning</h3>
+                    <div class="visuals-container">
+                        <div class="visual-model">
+                            <h4>6 × 3 = 18</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>3 rows of 6 = 18 total</p>
+                        </div>
+
+                        <div class="visual-model">
+                            <h4>6 × 4 = 24</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>4 rows of 6 = 24 total</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="action-buttons">
+            <div class="container">
+                <div class="button-group">
+                    <a href="table5.html" class="btn"><i class="fas fa-arrow-left"></i> Previous: Table of 5</a>
+                    <a href="table7.html" class="btn">Next: Table of 7 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="button-group">
+                    <a href="index.html" class="btn"><i class="fas fa-th-list"></i> All Tables</a>
+                    <a href="#" id="print-table" class="btn"><i class="fas fa-print"></i> Print Table</a>
+                    <a href="#" id="start-quiz" class="btn btn-featured"><i class="fas fa-pen"></i> Start Quiz</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        // ...existing code...
+    </footer>
+    
+    <script src="../js/main.js"></script>
     <script src="script.js"></script>
     <script>
-        var tableNumber = 6;
-        generateTable(tableNumber);
-        generateProblem(tableNumber);
+        document.addEventListener('DOMContentLoaded', function() {
+            const answerInput = document.getElementById('answer-input');
+            const submitButton = document.getElementById('submit-answer');
+            const feedbackArea = document.getElementById('feedback');
+            const questionFactor = document.getElementById('question-factor');
+            const correctCount = document.getElementById('correct-count');
+            const totalQuestions = document.getElementById('total-questions');
+            const progressBar = document.getElementById('progress-bar');
+            const printButton = document.getElementById('print-table');
+            
+            let currentFactor = 1;
+            let correctAnswers = 0;
+            let questionsAttempted = 0;
+            const maxQuestions = 10;
+            
+            // Initialize the first question
+            setNewQuestion();
+            
+            // Set up event listeners
+            // ...existing code...
+            
+            function setNewQuestion() {
+                // ...existing code...
+            }
+            
+            function checkAnswer() {
+                const userAnswer = parseInt(answerInput.value);
+                const correctAnswer = 6 * currentFactor; // Table of 6
+                
+                if (isNaN(userAnswer)) {
+                    // ...existing code...
+                }
+                
+                questionsAttempted++;
+                
+                if (userAnswer === correctAnswer) {
+                    // ...existing code...
+                } else {
+                    feedbackArea.textContent = `Not quite! 6 × ${currentFactor} = ${correctAnswer}`;
+                    // ...existing code...
+                }
+                
+                // Update the progress bar
+                // ...existing code...
+                
+                // Check if we've reached the maximum number of questions
+                // ...existing code...
+            }
+        });
     </script>
 </body>
 </html>

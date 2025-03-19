@@ -3,28 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table of 3</title>
+    <title>Table of 3 - Multiplication Tables Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <a href="index.html">Home</a>
-    <h1>Multiplication Table of 3</h1>
-    <div id="tableDisplay"></div>
-    <div id="quiz">
-        <h2>Quiz Time!</h2>
-        <p id="problem"></p>
-        <label for="userAnswer">Your Answer:</label>
-        <input type="number" id="userAnswer">
-        <button id="checkButton">Check Answer</button>
-        <button id="nextButton">Next Problem</button>
-        <p id="feedback" aria-live="polite"></p>
-        <p id="score">Score: 0</p>
-    </div>
+    <header>
+        <div class="container">
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <div id="font-size-controls">
+                <button id="decrease-font">A-</button>
+                <button id="increase-font">A+</button>
+            </div>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html">Lessons</a></li>
+                    <li><a href="../lessons/multiplication-intro.html">Multiplication Lesson</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Multiplication Table of 3</h2>
+                <p>Learn and practice the 3 times table.</p>
+            </div>
+        </section>
+
+        <section class="table-practice">
+            <div class="container">
+                <div class="practice-card">
+                    <h3>Times Table Chart</h3>
+                    <div class="table-container">
+                        <table class="times-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Multiplication Table of 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>3 × 1 =</td><td>3</td></tr>
+                                <tr><td>3 × 2 =</td><td>6</td></tr>
+                                <tr><td>3 × 3 =</td><td>9</td></tr>
+                                <tr><td>3 × 4 =</td><td>12</td></tr>
+                                <tr><td>3 × 5 =</td><td>15</td></tr>
+                                <tr><td>3 × 6 =</td><td>18</td></tr>
+                                <tr><td>3 × 7 =</td><td>21</td></tr>
+                                <tr><td>3 × 8 =</td><td>24</td></tr>
+                                <tr><td>3 × 9 =</td><td>27</td></tr>
+                                <tr><td>3 × 10 =</td><td>30</td></tr>
+                                <tr><td>3 × 11 =</td><td>33</td></tr>
+                                <tr><td>3 × 12 =</td><td>36</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Interactive Practice</h3>
+                    <div class="practice-container">
+                        <div id="practice-area">
+                            <div id="question-display">
+                                <h4>Solve this problem:</h4>
+                                <p id="current-question" class="question">3 × <span id="question-factor">?</span> = ?</p>
+                            </div>
+                            <div id="answer-area">
+                                <label for="answer-input">Your answer:</label>
+                                <input type="number" id="answer-input" min="0" max="144" placeholder="Type your answer">
+                                <button id="submit-answer" class="btn">Check Answer</button>
+                            </div>
+                            <div id="feedback" class="feedback-message"></div>
+                            <div id="progress-area">
+                                <p>Progress: <span id="correct-count">0</span> out of <span id="total-questions">10</span></p>
+                                <div class="progress-bar-container">
+                                    <div id="progress-bar" class="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Visual Learning</h3>
+                    <div class="visuals-container">
+                        <div class="visual-model">
+                            <h4>3 × 3 = 9</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>3 rows of 3 = 9 total</p>
+                        </div>
+
+                        <div class="visual-model">
+                            <h4>3 × 4 = 12</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>4 rows of 3 = 12 total</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="action-buttons">
+            <div class="container">
+                <div class="button-group">
+                    <a href="table2.html" class="btn"><i class="fas fa-arrow-left"></i> Previous: Table of 2</a>
+                    <a href="table4.html" class="btn">Next: Table of 4 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="button-group">
+                    <a href="index.html" class="btn"><i class="fas fa-th-list"></i> All Tables</a>
+                    <a href="#" id="print-table" class="btn"><i class="fas fa-print"></i> Print Table</a>
+                    <a href="#" id="start-quiz" class="btn btn-featured"><i class="fas fa-pen"></i> Start Quiz</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../lessons/multiplication-intro.html">Multiplication Introduction</a>
+                <a href="../index.html">Back to Main Site</a>
+                <a href="index.html">All Multiplication Tables</a>
+            </div>
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <style>
+        /* Specific styles for table pages */
+        .table-practice {
+            padding: 20px 0 40px;
+        }
+        
+        .practice-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .times-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        
+        .times-table th, .times-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .times-table th {
+            background-color: #4a6bff;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        .times-table tr:nth-child(even) {
+            background-color: #f5f8ff;
+        }
+        
+        .times-table tr:hover {
+            background-color: #e6f0ff;
+        }
+        
+        .practice-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        #practice-area {
+            text-align: center;
+        }
+        
+        .question {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+        
+        #answer-area {
+            margin: 20px 0;
+        }
+        
+        #answer-input {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+            text-align: center;
+        }
+        
+        .feedback-message {
+            height: 30px;
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4a6bff, #33ccff);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .visuals-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .visual-model {
+            background-color: #f5f8ff;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .array-container {
+            margin: 15px auto;
+            display: inline-block;
+        }
+        
+        .array-row {
+            display: flex;
+        }
+        
+        .array-cell {
+            width: 30px;
+            height: 30px;
+            background-color: #4a6bff;
+            margin: 2px;
+            border-radius: 4px;
+        }
+        
+        .action-buttons {
+            padding: 20px 0 40px;
+            background-color: #f5f8ff;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .btn-featured {
+            background-color: #4a6bff;
+            color: white;
+        }
+        
+        .btn-featured:hover {
+            background-color: #3a56d4;
+        }
+        
+        @media print {
+            header, .page-header, .practice-card:not(:first-child), .action-buttons, footer {
+                display: none;
+            }
+            
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .practice-card {
+                box-shadow: none;
+                border: none;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .visuals-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    <script src="../js/main.js"></script>
     <script src="script.js"></script>
     <script>
-        var tableNumber = 3;
-        generateTable(tableNumber);
-        generateProblem(tableNumber);
+        document.addEventListener('DOMContentLoaded', function() {
+            const answerInput = document.getElementById('answer-input');
+            const submitButton = document.getElementById('submit-answer');
+            const feedbackArea = document.getElementById('feedback');
+            const questionFactor = document.getElementById('question-factor');
+            const correctCount = document.getElementById('correct-count');
+            const totalQuestions = document.getElementById('total-questions');
+            const progressBar = document.getElementById('progress-bar');
+            const printButton = document.getElementById('print-table');
+            
+            let currentFactor = 1;
+            let correctAnswers = 0;
+            let questionsAttempted = 0;
+            const maxQuestions = 10;
+            
+            // Initialize the first question
+            setNewQuestion();
+            
+            // Set up event listeners
+            submitButton.addEventListener('click', checkAnswer);
+            answerInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkAnswer();
+                }
+            });
+            
+            printButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.print();
+            });
+            
+            function setNewQuestion() {
+                // Reset the answer input
+                answerInput.value = '';
+                answerInput.focus();
+                
+                // Generate a random factor between 1 and 12
+                currentFactor = Math.floor(Math.random() * 12) + 1;
+                questionFactor.textContent = currentFactor;
+            }
+            
+            function checkAnswer() {
+                const userAnswer = parseInt(answerInput.value);
+                const correctAnswer = 3 * currentFactor; // Table of 3
+                
+                if (isNaN(userAnswer)) {
+                    feedbackArea.textContent = "Please enter a number.";
+                    feedbackArea.style.color = "#e74c3c";
+                    return;
+                }
+                
+                questionsAttempted++;
+                
+                if (userAnswer === correctAnswer) {
+                    feedbackArea.textContent = "Correct! Well done! ✓";
+                    feedbackArea.style.color = "#2ecc71";
+                    correctAnswers++;
+                    correctCount.textContent = correctAnswers;
+                } else {
+                    feedbackArea.textContent = `Not quite! 3 × ${currentFactor} = ${correctAnswer}`;
+                    feedbackArea.style.color = "#e74c3c";
+                }
+                
+                // Update the progress bar
+                const progress = (questionsAttempted / maxQuestions) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Check if we've reached the maximum number of questions
+                if (questionsAttempted < maxQuestions) {
+                    // Set a new question after a short delay
+                    setTimeout(setNewQuestion, 1500);
+                } else {
+                    // End of practice
+                    const score = Math.round((correctAnswers / maxQuestions) * 100);
+                    setTimeout(() => {
+                        feedbackArea.innerHTML = `Practice complete! Your score: ${score}%<br>
+                                               <button id="restart-practice" class="btn">Practice Again</button>`;
+                        
+                        document.getElementById('restart-practice').addEventListener('click', function() {
+                            correctAnswers = 0;
+                            questionsAttempted = 0;
+                            correctCount.textContent = '0';
+                            progressBar.style.width = '0%';
+                            setNewQuestion();
+                        });
+                    }, 1500);
+                }
+            }
+        });
     </script>
 </body>
 </html>

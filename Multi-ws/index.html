@@ -4,28 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplication Tables Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="navigation-links">
-        <a href="../lessons/multiplication-intro.html">&larr; Back to Introduction</a>
-    </div>
+    <header>
+        <div class="container">
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <div id="font-size-controls">
+                <button id="decrease-font">A-</button>
+                <button id="increase-font">A+</button>
+            </div>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html">Lessons</a></li>
+                    <li><a href="../lessons/multiplication-intro.html">Multiplication Lesson</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Multiplication Tables Practice</h2>
+                <p>Choose a table to practice or try mixed practice.</p>
+            </div>
+        </section>
+
+        <section class="tables-grid">
+            <div class="container">
+                <div class="tables-row">
+                    <div class="table-card">
+                        <h3>Table of 2</h3>
+                        <div class="table-preview">2 × 1 = 2<br>2 × 2 = 4<br>2 × 3 = 6</div>
+                        <a href="table2.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 3</h3>
+                        <div class="table-preview">3 × 1 = 3<br>3 × 2 = 6<br>3 × 3 = 9</div>
+                        <a href="table3.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 4</h3>
+                        <div class="table-preview">4 × 1 = 4<br>4 × 2 = 8<br>4 × 3 = 12</div>
+                        <a href="table4.html" class="btn">Practice</a>
+                    </div>
+                </div>
+                
+                <div class="tables-row">
+                    <div class="table-card">
+                        <h3>Table of 5</h3>
+                        <div class="table-preview">5 × 1 = 5<br>5 × 2 = 10<br>5 × 3 = 15</div>
+                        <a href="table5.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 6</h3>
+                        <div class="table-preview">6 × 1 = 6<br>6 × 2 = 12<br>6 × 3 = 18</div>
+                        <a href="table6.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 7</h3>
+                        <div class="table-preview">7 × 1 = 7<br>7 × 2 = 14<br>7 × 3 = 21</div>
+                        <a href="table7.html" class="btn">Practice</a>
+                    </div>
+                </div>
+                
+                <div class="tables-row">
+                    <div class="table-card">
+                        <h3>Table of 8</h3>
+                        <div class="table-preview">8 × 1 = 8<br>8 × 2 = 16<br>8 × 3 = 24</div>
+                        <a href="table8.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 9</h3>
+                        <div class="table-preview">9 × 1 = 9<br>9 × 2 = 18<br>9 × 3 = 27</div>
+                        <a href="table9.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card">
+                        <h3>Table of 10</h3>
+                        <div class="table-preview">10 × 1 = 10<br>10 × 2 = 20<br>10 × 3 = 30</div>
+                        <a href="table10.html" class="btn">Practice</a>
+                    </div>
+                </div>
+                
+                <div class="tables-row">
+                    <div class="table-card">
+                        <h3>Table of 11</h3>
+                        <div class="table-preview">11 × 1 = 11<br>11 × 2 = 22<br>11 × 3 = 33</div>
+                        <a href="table11.html" class="btn">Practice</a>
+                    </div>
+                    
+                    <div class="table-card special-card">
+                        <h3>Mixed Practice</h3>
+                        <div class="table-preview">Practice all tables together!</div>
+                        <a href="mixed.html" class="btn btn-featured">Practice All</a>
+                    </div>
+                    
+                    <div class="table-card special-card">
+                        <h3>Multiplication Game</h3>
+                        <div class="table-preview">Fun challenges to test your skills</div>
+                        <a href="mixed_game.html" class="btn btn-featured">Play Game</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="featured-section">
+            <div class="container">
+                <h2><i class="fas fa-star"></i> Learning Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <h3>Times Tables Tricks</h3>
+                        <p>Learn shortcuts for mastering multiplication tables faster!</p>
+                        <a href="resources/tricks.html" class="btn">View Tips</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Printable Worksheets</h3>
+                        <p>Download and print multiplication worksheets to practice offline.</p>
+                        <a href="resources/worksheets.html" class="btn">Get Worksheets</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../lessons/multiplication-intro.html">Multiplication Introduction</a>
+                <a href="../index.html">Back to Main Site</a>
+            </div>
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+        </div>
+    </footer>
     
-    <h1>Welcome to Multiplication Tables Practice!</h1>
-    <p>Choose a table to practice or try mixed practice.</p>
-    <ul>
-        <li><a href="table2.html">Table of 2</a></li>
-        <li><a href="table3.html">Table of 3</a></li>
-        <li><a href="table4.html">Table of 4</a></li>
-        <li><a href="table5.html">Table of 5</a></li>
-        <li><a href="table6.html">Table of 6</a></li>
-        <li><a href="table7.html">Table of 7</a></li>
-        <li><a href="table8.html">Table of 8</a></li>
-        <li><a href="table9.html">Table of 9</a></li>
-        <li><a href="table10.html">Table of 10</a></li>
-        <li><a href="table11.html">Table of 11</a></li>
-        <li><a href="mixed.html">Mixed Practice</a></li>
-        <li><a href="mixed_game.html">Mixed Game</a></li>
-    </ul>
+    <style>
+        /* Additional styling to match main site */
+        .tables-grid {
+            padding: 20px 0 40px;
+        }
+        
+        .tables-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .table-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .table-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .special-card {
+            background-color: #f5f8ff;
+            border: 2px solid #4a6bff;
+        }
+        
+        .table-preview {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .btn-featured {
+            background-color: #4a6bff;
+            color: white;
+        }
+        
+        .btn-featured:hover {
+            background-color: #3a56d4;
+        }
+        
+        .featured-section {
+            background-color: #f5f8ff;
+            padding: 40px 0;
+        }
+        
+        .resources-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .resource-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .table-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .resource-item {
+                width: 100%;
+            }
+        }
+    </style>
+    
+    <script src="../js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -3,28 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table of 10</title>
+    <title>Table of 10 - Multiplication Tables Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <a href="index.html">Home</a>
-    <h1>Multiplication Table of 10</h1>
-    <div id="tableDisplay"></div>
-    <div id="quiz">
-        <h2>Quiz Time!</h2>
-        <p id="problem"></p>
-        <label for="userAnswer">Your Answer:</label>
-        <input type="number" id="userAnswer">
-        <button id="checkButton">Check Answer</button>
-        <button id="nextButton">Next Problem</button>
-        <p id="feedback" aria-live="polite"></p>
-        <p id="score">Score: 0</p>
-    </div>
+    <header>
+        <div class="container">
+            <h1><img src="../images/math-fun-logo.png" alt="Math Fun Logo" class="site-logo" onerror="this.style.display='none'"> Math Fun</h1>
+            <div id="font-size-controls">
+                <button id="decrease-font">A-</button>
+                <button id="increase-font">A+</button>
+            </div>
+            <nav id="main-nav">
+                <button aria-label="Toggle menu" id="menu-toggle">Menu</button>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../lessons.html">Lessons</a></li>
+                    <li><a href="../lessons/multiplication-intro.html">Multiplication Lesson</a></li>
+                    <li><a href="../games.html">Games</a></li>
+                    <li><a href="../progress.html">Progress</a></li>
+                    <li><a href="../settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Multiplication Table of 10</h2>
+                <p>Learn and practice the 10 times table.</p>
+            </div>
+        </section>
+
+        <section class="table-practice">
+            <div class="container">
+                <div class="practice-card">
+                    <h3>Times Table Chart</h3>
+                    <div class="table-container">
+                        <table class="times-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Multiplication Table of 10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10 × 1 =</td><td>10</td></tr>
+                                <tr><td>10 × 2 =</td><td>20</td></tr>
+                                <tr><td>10 × 3 =</td><td>30</td></tr>
+                                <tr><td>10 × 4 =</td><td>40</td></tr>
+                                <tr><td>10 × 5 =</td><td>50</td></tr>
+                                <tr><td>10 × 6 =</td><td>60</td></tr>
+                                <tr><td>10 × 7 =</td><td>70</td></tr>
+                                <tr><td>10 × 8 =</td><td>80</td></tr>
+                                <tr><td>10 × 9 =</td><td>90</td></tr>
+                                <tr><td>10 × 10 =</td><td>100</td></tr>
+                                <tr><td>10 × 11 =</td><td>110</td></tr>
+                                <tr><td>10 × 12 =</td><td>120</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Interactive Practice</h3>
+                    <div class="practice-container">
+                        <div id="practice-area">
+                            <div id="question-display">
+                                <h4>Solve this problem:</h4>
+                                <p id="current-question" class="question">10 × <span id="question-factor">?</span> = ?</p>
+                            </div>
+                            <div id="answer-area">
+                                <label for="answer-input">Your answer:</label>
+                                <input type="number" id="answer-input" min="0" max="150" placeholder="Type your answer">
+                                <button id="submit-answer" class="btn">Check Answer</button>
+                            </div>
+                            <div id="feedback" class="feedback-message"></div>
+                            <div id="progress-area">
+                                <p>Progress: <span id="correct-count">0</span> out of <span id="total-questions">10</span></p>
+                                <div class="progress-bar-container">
+                                    <div id="progress-bar" class="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Visual Learning</h3>
+                    <div class="visuals-container">
+                        <div class="visual-model">
+                            <h4>10 × 3 = 30</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>3 rows of 10 = 30 total</p>
+                        </div>
+
+                        <div class="visual-model">
+                            <h4>10 × 4 = 40</h4>
+                            <div class="array-container">
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                                <div class="array-row">
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                    <div class="array-cell"></div>
+                                </div>
+                            </div>
+                            <p>4 rows of 10 = 40 total</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="action-buttons">
+            <div class="container">
+                <div class="button-group">
+                    <a href="table9.html" class="btn"><i class="fas fa-arrow-left"></i> Previous: Table of 9</a>
+                    <a href="table11.html" class="btn">Next: Table of 11 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="button-group">
+                    <a href="index.html" class="btn"><i class="fas fa-th-list"></i> All Tables</a>
+                    <a href="#" id="print-table" class="btn"><i class="fas fa-print"></i> Print Table</a>
+                    <a href="#" id="start-quiz" class="btn btn-featured"><i class="fas fa-pen"></i> Start Quiz</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../lessons/multiplication-intro.html">Multiplication Introduction</a>
+                <a href="../index.html">Back to Main Site</a>
+                <a href="index.html">All Multiplication Tables</a>
+            </div>
+            <p>&copy; 2023 Math Fun. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <style>
+        /* Specific styles for table pages */
+        .table-practice {
+            padding: 20px 0 40px;
+        }
+        
+        .practice-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* ...existing code... */
+    </style>
+    
+    <script src="../js/main.js"></script>
     <script src="script.js"></script>
     <script>
-        var tableNumber = 10;
-        generateTable(tableNumber);
-        generateProblem(tableNumber);
+        document.addEventListener('DOMContentLoaded', function() {
+            const answerInput = document.getElementById('answer-input');
+            const submitButton = document.getElementById('submit-answer');
+            const feedbackArea = document.getElementById('feedback');
+            const questionFactor = document.getElementById('question-factor');
+            const correctCount = document.getElementById('correct-count');
+            const totalQuestions = document.getElementById('total-questions');
+            const progressBar = document.getElementById('progress-bar');
+            const printButton = document.getElementById('print-table');
+            
+            let currentFactor = 1;
+            let correctAnswers = 0;
+            let questionsAttempted = 0;
+            const maxQuestions = 10;
+            
+            // Initialize the first question
+            setNewQuestion();
+            
+            // Set up event listeners
+            submitButton.addEventListener('click', checkAnswer);
+            answerInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkAnswer();
+                }
+            });
+            
+            printButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.print();
+            });
+            
+            function setNewQuestion() {
+                // Reset the answer input
+                answerInput.value = '';
+                answerInput.focus();
+                
+                // Generate a random factor between 1 and 12
+                currentFactor = Math.floor(Math.random() * 12) + 1;
+                questionFactor.textContent = currentFactor;
+            }
+            
+            function checkAnswer() {
+                const userAnswer = parseInt(answerInput.value);
+                const correctAnswer = 10 * currentFactor; // Table of 10
+                
+                if (isNaN(userAnswer)) {
+                    feedbackArea.textContent = "Please enter a number.";
+                    feedbackArea.style.color = "#e74c3c";
+                    return;
+                }
+                
+                questionsAttempted++;
+                
+                if (userAnswer === correctAnswer) {
+                    feedbackArea.textContent = "Correct! Well done! ✓";
+                    feedbackArea.style.color = "#2ecc71";
+                    correctAnswers++;
+                    correctCount.textContent = correctAnswers;
+                } else {
+                    feedbackArea.textContent = `Not quite! 10 × ${currentFactor} = ${correctAnswer}`;
+                    feedbackArea.style.color = "#e74c3c";
+                }
+                
+                // Update the progress bar
+                const progress = (questionsAttempted / maxQuestions) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Check if we've reached the maximum number of questions
+                if (questionsAttempted < maxQuestions) {
+                    // Set a new question after a short delay
+                    setTimeout(setNewQuestion, 1500);
+                } else {
+                    // End of practice
+                    const score = Math.round((correctAnswers / maxQuestions) * 100);
+                    setTimeout(() => {
+                        feedbackArea.innerHTML = `Practice complete! Your score: ${score}%<br>
+                                               <button id="restart-practice" class="btn">Practice Again</button>`;
+                        
+                        document.getElementById('restart-practice').addEventListener('click', function() {
+                            correctAnswers = 0;
+                            questionsAttempted = 0;
+                            correctCount.textContent = '0';
+                            progressBar.style.width = '0%';
+                            setNewQuestion();
+                        });
+                    }, 1500);
+                }
+            }
+        });
     </script>
 </body>
 </html>
